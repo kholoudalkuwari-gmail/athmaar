@@ -1,0 +1,1817 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Athmaar - Invest with Confidence</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0D2137;
+    --teal: #02C39A;
+    --teal2: #028090;
+    --light: #F0FAFA;
+    --white: #FFFFFF;
+    --gray: #6B7280;
+    --light-gray: #F3F4F6;
+    --border: #E5E7EB;
+    --red: #EF4444;
+    --green: #10B981;
+    --gold: #F59E0B;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--light-gray);
+    color: var(--navy);
+    max-width: 430px;
+    margin: 0 auto;
+    min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+  }
+
+  /* ── SCREENS ── */
+  .screen { display: none; min-height: 100vh; flex-direction: column; }
+  .screen.active { display: flex; }
+
+  /* ── SPLASH ── */
+  #splash {
+    background: linear-gradient(160deg, var(--navy) 0%, #1a3a5c 60%, #0a4a4a 100%);
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    padding: 40px 24px;
+  }
+
+  .splash-logo {
+    font-size: 52px;
+    font-weight: 800;
+    color: var(--white);
+    letter-spacing: -2px;
+  }
+
+  .splash-logo span { color: var(--teal); }
+
+  .splash-tagline {
+    color: rgba(255,255,255,0.7);
+    font-size: 17px;
+    text-align: center;
+    line-height: 1.7;
+  }
+
+  .splash-badges {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .badge {
+    background: rgba(2, 195, 154, 0.15);
+    border: 1px solid rgba(2, 195, 154, 0.4);
+    color: var(--teal);
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 500;
+  }
+
+  .btn-primary {
+    background: var(--teal);
+    color: var(--navy);
+    font-family: 'Inter', sans-serif;
+    font-size: 17px;
+    font-weight: 700;
+    padding: 16px 48px;
+    border-radius: 14px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    max-width: 320px;
+    transition: all 0.2s;
+    margin-top: 8px;
+  }
+
+  .btn-primary:hover { background: #01a882; transform: translateY(-1px); }
+
+  .btn-secondary {
+    background: transparent;
+    color: rgba(255,255,255,0.6);
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+  }
+
+  /* ── ONBOARDING ── */
+  #onboarding {
+    background: var(--white);
+  }
+
+  .onboard-header {
+    background: linear-gradient(135deg, var(--navy), #1a3a5c);
+    padding: 50px 24px 30px;
+    color: white;
+  }
+
+  .progress-bar {
+    height: 4px;
+    background: rgba(255,255,255,0.2);
+    border-radius: 2px;
+    margin-bottom: 24px;
+    overflow: hidden;
+  }
+
+  .progress-fill {
+    height: 100%;
+    background: var(--teal);
+    border-radius: 2px;
+    transition: width 0.4s ease;
+  }
+
+  .step-label {
+    font-size: 12px;
+    color: rgba(255,255,255,0.5);
+    margin-bottom: 8px;
+    letter-spacing: 1px;
+  }
+
+  .step-question {
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 1.4;
+  }
+
+  .onboard-body { padding: 28px 20px; flex: 1; }
+
+  .options-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+
+  .option-card {
+    border: 2px solid var(--border);
+    border-radius: 14px;
+    padding: 16px 12px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.2s;
+    background: var(--white);
+  }
+
+  .option-card:hover { border-color: var(--teal); background: var(--light); }
+  .option-card.selected { border-color: var(--teal); background: #e6faf5; }
+
+  .option-icon { font-size: 28px; margin-bottom: 8px; }
+  .option-label { font-size: 14px; font-weight: 600; color: var(--navy); }
+  .option-desc { font-size: 12px; color: var(--gray); margin-top: 3px; }
+
+  .options-list { display: flex; flex-direction: column; gap: 10px; }
+
+  .option-row {
+    border: 2px solid var(--border);
+    border-radius: 12px;
+    padding: 14px 16px;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: var(--white);
+  }
+
+  .option-row:hover { border-color: var(--teal); }
+  .option-row.selected { border-color: var(--teal); background: #e6faf5; }
+  .option-row-icon { font-size: 22px; }
+  .option-row-text { flex: 1; }
+  .option-row-label { font-size: 15px; font-weight: 600; }
+  .option-row-sub { font-size: 12px; color: var(--gray); }
+
+  .slider-container { padding: 10px 0 20px; }
+  .amount-display {
+    font-size: 36px;
+    font-weight: 800;
+    color: var(--teal);
+    text-align: center;
+    margin-bottom: 8px;
+  }
+  .amount-label { text-align: center; color: var(--gray); font-size: 14px; margin-bottom: 20px; }
+
+  input[type=range] {
+    width: 100%;
+    height: 6px;
+    border-radius: 3px;
+    background: linear-gradient(to left, var(--teal) 30%, var(--border) 30%);
+    outline: none;
+    -webkit-appearance: none;
+  }
+  input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 24px; height: 24px;
+    background: var(--teal);
+    border-radius: 50%;
+    cursor: pointer;
+    border: 3px solid white;
+    box-shadow: 0 2px 8px rgba(2,195,154,0.4);
+  }
+
+  /* ── DASHBOARD ── */
+  #dashboard { background: var(--light-gray); }
+
+  .top-bar {
+    background: linear-gradient(135deg, var(--navy) 0%, #1a3a5c 100%);
+    padding: 50px 20px 70px;
+    position: relative;
+  }
+
+  .top-bar-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+
+  .greeting { color: rgba(255,255,255,0.6); font-size: 14px; }
+  .user-name { color: white; font-size: 20px; font-weight: 700; margin-top: 2px; }
+
+  .notif-btn {
+    width: 40px; height: 40px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 12px;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    display: flex; align-items: center; justify-content: center;
+  }
+
+  .portfolio-card {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 20px;
+    padding: 20px;
+    color: white;
+  }
+
+  .portfolio-label { font-size: 13px; color: rgba(255,255,255,0.5); margin-bottom: 6px; }
+  .portfolio-amount { font-size: 36px; font-weight: 800; letter-spacing: -1px; }
+  .portfolio-change {
+    display: flex; gap: 16px; margin-top: 12px; flex-wrap: wrap;
+  }
+  .change-item { font-size: 13px; }
+  .change-green { color: var(--teal); }
+  .change-gray { color: rgba(255,255,255,0.5); }
+
+  .sharia-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(2,195,154,0.15);
+    border: 1px solid rgba(2,195,154,0.3);
+    color: var(--teal);
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    margin-top: 12px;
+  }
+
+  .content-area {
+    padding: 0 16px 100px;
+    margin-top: -30px;
+  }
+
+  .quick-actions {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    margin-bottom: 20px;
+  }
+
+  .quick-btn {
+    background: var(--white);
+    border-radius: 14px;
+    padding: 14px 8px;
+    text-align: center;
+    cursor: pointer;
+    border: none;
+    transition: all 0.2s;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  }
+
+  .quick-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 16px rgba(0,0,0,0.1); }
+  .quick-btn-icon { font-size: 22px; margin-bottom: 6px; }
+  .quick-btn-label { font-size: 11px; color: var(--gray); font-weight: 500; }
+
+  .section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+    margin-top: 20px;
+  }
+
+  .section-title { font-size: 16px; font-weight: 700; }
+  .see-all { font-size: 13px; color: var(--teal); cursor: pointer; border: none; background: none; font-family: 'Inter', sans-serif; }
+
+  /* Alert Card */
+  .alert-card {
+    background: linear-gradient(135deg, #e6faf5, #f0fffc);
+    border: 1px solid rgba(2,195,154,0.3);
+    border-radius: 16px;
+    padding: 16px;
+    margin-bottom: 16px;
+    cursor: pointer;
+  }
+
+  .alert-card-header { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+  .alert-icon { font-size: 20px; }
+  .alert-title { font-size: 14px; font-weight: 700; color: var(--navy); }
+  .alert-time { font-size: 11px; color: var(--gray); margin-right: auto; }
+  .alert-body { font-size: 13px; color: var(--gray); line-height: 1.6; }
+
+  /* Investment Card */
+  .invest-card {
+    background: var(--white);
+    border-radius: 16px;
+    padding: 14px 16px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    transition: all 0.2s;
+  }
+
+  .invest-card:hover { transform: translateY(-1px); box-shadow: 0 6px 16px rgba(0,0,0,0.08); }
+
+  .invest-avatar {
+    width: 44px; height: 44px;
+    border-radius: 12px;
+    background: var(--navy);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 16px; font-weight: 700; color: white;
+    flex-shrink: 0;
+  }
+
+  .invest-info { flex: 1; }
+  .invest-name { font-size: 15px; font-weight: 700; }
+  .invest-type { font-size: 12px; color: var(--gray); }
+  .halal-tag {
+    font-size: 10px;
+    background: #e6faf5;
+    color: var(--teal);
+    padding: 2px 7px;
+    border-radius: 6px;
+    font-weight: 600;
+  }
+
+  .invest-amount { text-align: left; }
+  .invest-value { font-size: 15px; font-weight: 700; }
+  .invest-change-pos { font-size: 12px; color: var(--green); }
+  .invest-change-neg { font-size: 12px; color: var(--red); }
+
+  /* ── BOTTOM NAV ── */
+  .bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 430px;
+    background: var(--white);
+    border-top: 1px solid var(--border);
+    display: flex;
+    padding: 10px 0 20px;
+    z-index: 100;
+  }
+
+  .nav-item {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    cursor: pointer;
+    padding: 6px 0;
+    border: none;
+    background: none;
+    font-family: 'Inter', sans-serif;
+  }
+
+  .nav-icon { font-size: 22px; }
+  .nav-label { font-size: 10px; color: var(--gray); }
+  .nav-item.active .nav-label { color: var(--teal); }
+  .nav-item.active .nav-icon { filter: none; }
+
+  .nav-ai-btn {
+    width: 52px; height: 52px;
+    background: linear-gradient(135deg, var(--teal), var(--teal2));
+    border-radius: 16px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 24px;
+    margin-top: -16px;
+    box-shadow: 0 4px 16px rgba(2,195,154,0.4);
+    border: none;
+    cursor: pointer;
+  }
+
+  /* ── AI CHAT ── */
+  #chat-screen {
+    background: var(--light-gray);
+    display: none;
+    flex-direction: column;
+    height: 100vh;
+  }
+
+  #chat-screen.active { display: flex; }
+
+  .chat-header {
+    background: linear-gradient(135deg, var(--navy), #1a3a5c);
+    padding: 50px 20px 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: white;
+  }
+
+  .back-btn {
+    background: rgba(255,255,255,0.1);
+    border: none;
+    width: 36px; height: 36px;
+    border-radius: 10px;
+    font-size: 18px;
+    cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+  }
+
+  .chat-ai-avatar {
+    width: 40px; height: 40px;
+    background: var(--teal);
+    border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 20px;
+  }
+
+  .chat-ai-info { flex: 1; }
+  .chat-ai-name { font-size: 16px; font-weight: 700; }
+  .chat-ai-status { font-size: 12px; color: rgba(255,255,255,0.5); }
+
+  .chat-messages {
+    flex: 1;
+    overflow-y: auto;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .msg {
+    max-width: 80%;
+    padding: 12px 16px;
+    border-radius: 16px;
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  .msg-ai {
+    background: var(--white);
+    color: var(--navy);
+    align-self: flex-end;
+    border-bottom-right-radius: 4px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  }
+
+  .msg-user {
+    background: var(--teal);
+    color: white;
+    align-self: flex-start;
+    border-bottom-left-radius: 4px;
+  }
+
+  .msg-time {
+    font-size: 10px;
+    color: var(--gray);
+    margin-top: 4px;
+    text-align: center;
+  }
+
+  .suggestions {
+    display: flex;
+    gap: 8px;
+    padding: 0 16px 8px;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .suggestion-chip {
+    background: var(--white);
+    border: 1px solid var(--border);
+    color: var(--navy);
+    padding: 8px 14px;
+    border-radius: 20px;
+    font-size: 13px;
+    white-space: nowrap;
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    transition: all 0.2s;
+  }
+
+  .suggestion-chip:hover { border-color: var(--teal); color: var(--teal); }
+
+  .chat-input-area {
+    padding: 12px 16px 30px;
+    background: var(--white);
+    border-top: 1px solid var(--border);
+    display: flex;
+    gap: 10px;
+    align-items: flex-end;
+  }
+
+  .chat-input {
+    flex: 1;
+    border: 2px solid var(--border);
+    border-radius: 14px;
+    padding: 12px 16px;
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    outline: none;
+    resize: none;
+    max-height: 100px;
+    direction: rtl;
+    transition: border-color 0.2s;
+  }
+
+  .chat-input:focus { border-color: var(--teal); }
+
+  .send-btn {
+    width: 46px; height: 46px;
+    background: var(--teal);
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 20px;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    transition: all 0.2s;
+  }
+
+  .send-btn:hover { background: #01a882; }
+
+  .typing-indicator {
+    display: flex;
+    gap: 4px;
+    align-items: center;
+    padding: 12px 16px;
+    background: var(--white);
+    border-radius: 16px;
+    align-self: flex-end;
+    width: fit-content;
+  }
+
+  .typing-dot {
+    width: 8px; height: 8px;
+    background: var(--teal);
+    border-radius: 50%;
+    animation: typing 1.2s infinite;
+  }
+
+  .typing-dot:nth-child(2) { animation-delay: 0.2s; }
+  .typing-dot:nth-child(3) { animation-delay: 0.4s; }
+
+  @keyframes typing {
+    0%, 60%, 100% { transform: translateY(0); opacity: 0.4; }
+    30% { transform: translateY(-6px); opacity: 1; }
+  }
+
+  /* ── PAPER TRADING ── */
+  #trading-screen {
+    background: var(--light-gray);
+    display: none;
+    flex-direction: column;
+  }
+
+  #trading-screen.active { display: flex; }
+
+  .screen-header {
+    background: linear-gradient(135deg, var(--navy), #1a3a5c);
+    padding: 50px 20px 20px;
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .header-title { font-size: 18px; font-weight: 700; }
+  .header-sub { font-size: 12px; color: rgba(255,255,255,0.5); }
+
+  .simulator-balance {
+    background: rgba(255,255,255,0.1);
+    border-radius: 14px;
+    padding: 14px 16px;
+    margin: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 12px;
+  }
+
+  .sim-label { font-size: 12px; color: rgba(255,255,255,0.5); }
+  .sim-amount { font-size: 22px; font-weight: 800; }
+  .sim-badge {
+    background: rgba(245,158,11,0.2);
+    color: var(--gold);
+    padding: 4px 10px;
+    border-radius: 8px;
+    font-size: 11px;
+    font-weight: 600;
+  }
+
+  .trading-content { padding: 16px 16px 100px; flex: 1; overflow-y: auto; }
+
+  .market-tabs {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 16px;
+    overflow-x: auto;
+    scrollbar-width: none;
+    padding-bottom: 4px;
+  }
+
+  .tab-btn {
+    background: var(--white);
+    border: 2px solid var(--border);
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    color: var(--gray);
+    white-space: nowrap;
+    transition: all 0.2s;
+  }
+
+  .tab-btn.active {
+    background: var(--teal);
+    border-color: var(--teal);
+    color: var(--navy);
+  }
+
+  .stock-card {
+    background: var(--white);
+    border-radius: 16px;
+    padding: 16px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  }
+
+  .stock-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 12px;
+  }
+
+  .stock-name { font-size: 15px; font-weight: 700; }
+  .stock-ticker { font-size: 12px; color: var(--gray); }
+  .stock-price { font-size: 18px; font-weight: 800; text-align: left; }
+  .stock-change-pos { font-size: 13px; color: var(--green); text-align: left; }
+  .stock-change-neg { font-size: 13px; color: var(--red); text-align: left; }
+
+  .stock-actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+
+  .buy-btn {
+    background: var(--green);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    transition: all 0.2s;
+  }
+
+  .sell-btn {
+    background: var(--light-gray);
+    color: var(--red);
+    border: 1px solid var(--red);
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    transition: all 0.2s;
+  }
+
+  /* ── REPORT SCREEN ── */
+  #report-screen {
+    background: var(--light-gray);
+    display: none;
+    flex-direction: column;
+  }
+
+  #report-screen.active { display: flex; }
+
+  .report-content { padding: 16px 16px 100px; overflow-y: auto; }
+
+  .report-card {
+    background: var(--white);
+    border-radius: 16px;
+    padding: 20px;
+    margin-bottom: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  }
+
+  .report-card-title {
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .report-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--light-gray);
+  }
+
+  .report-row:last-child { border-bottom: none; }
+  .report-row-label { font-size: 13px; color: var(--gray); }
+  .report-row-value { font-size: 14px; font-weight: 700; }
+  .report-row-pos { color: var(--green); }
+  .report-row-neg { color: var(--red); }
+
+  .market-summary-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+
+  .market-mini {
+    background: var(--light-gray);
+    border-radius: 12px;
+    padding: 12px;
+  }
+
+  .market-mini-name { font-size: 12px; color: var(--gray); margin-bottom: 4px; }
+  .market-mini-val { font-size: 16px; font-weight: 700; }
+  .market-mini-change { font-size: 12px; }
+
+  /* ── MODAL ── */
+  .modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.5);
+    z-index: 200;
+    display: none;
+    align-items: flex-end;
+    justify-content: center;
+  }
+
+  .modal-overlay.open { display: flex; }
+
+  .modal {
+    background: var(--white);
+    border-radius: 24px 24px 0 0;
+    padding: 24px 20px 40px;
+    width: 100%;
+    max-width: 430px;
+    animation: slideUp 0.3s ease;
+  }
+
+  @keyframes slideUp {
+    from { transform: translateY(100%); }
+    to { transform: translateY(0); }
+  }
+
+  .modal-handle {
+    width: 40px; height: 4px;
+    background: var(--border);
+    border-radius: 2px;
+    margin: 0 auto 20px;
+  }
+
+  .modal-title { font-size: 18px; font-weight: 700; margin-bottom: 16px; }
+
+  .trade-input-group { margin-bottom: 16px; }
+  .trade-label { font-size: 13px; color: var(--gray); margin-bottom: 6px; }
+
+  .trade-input {
+    width: 100%;
+    border: 2px solid var(--border);
+    border-radius: 12px;
+    padding: 12px 16px;
+    font-size: 18px;
+    font-weight: 700;
+    font-family: 'Inter', sans-serif;
+    outline: none;
+    direction: ltr;
+    text-align: right;
+  }
+
+  .trade-input:focus { border-color: var(--teal); }
+
+  .trade-summary {
+    background: var(--light-gray);
+    border-radius: 12px;
+    padding: 14px;
+    margin-bottom: 16px;
+  }
+
+  .toast {
+    position: fixed;
+    top: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--navy);
+    color: white;
+    padding: 12px 24px;
+    border-radius: 12px;
+    font-size: 14px;
+    z-index: 300;
+    display: none;
+    white-space: nowrap;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+  }
+
+  .toast.show { display: block; animation: fadeInOut 2.5s ease; }
+
+  @keyframes fadeInOut {
+    0% { opacity: 0; transform: translateX(-50%) translateY(-10px); }
+    15% { opacity: 1; transform: translateX(-50%) translateY(0); }
+    80% { opacity: 1; }
+    100% { opacity: 0; }
+  }
+
+  /* Scrollbar */
+  ::-webkit-scrollbar { width: 0; }
+</style>
+</head>
+<body>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<!-- ═══════════════════════════════ SPLASH ═══════════════════════════════ -->
+<div class="screen active" id="splash" style="gap:28px">
+  <div style="text-align:center">
+    <div style="font-size:56px;margin-bottom:8px">🌿</div>
+    <div class="splash-logo">أث<span>مار</span></div>
+  </div>
+  <div class="splash-tagline">Invest Smart. Invest with Confidence.<br>100% Shariah-Compliant, AI-Powered</div>
+  <div class="splash-badges">
+    <span class="badge">✦ 100% Halal</span>
+    <span class="badge">✦ AI-Powered</span>
+    <span class="badge">✦ Built for Qatar</span>
+  </div>
+  <button class="btn-primary" onclick="showScreen('onboarding')">Start Your Investment Journey</button>
+  <button class="btn-secondary" onclick="skipOnboarding()">I already have an account</button>
+</div>
+
+<!-- ═══════════════════════════════ ONBOARDING ═══════════════════════════════ -->
+<div class="screen" id="onboarding">
+  <div class="onboard-header">
+    <div class="progress-bar">
+      <div class="progress-fill" id="progress" style="width:20%"></div>
+    </div>
+    <div class="step-label" id="step-label">Step 1 of 5</div>
+    <div class="step-question" id="step-question">What is your main investment goal?</div>
+  </div>
+
+  <div class="onboard-body" id="onboard-body">
+    <!-- Content changes per step -->
+  </div>
+</div>
+
+<!-- ═══════════════════════════════ DASHBOARD ═══════════════════════════════ -->
+<div class="screen" id="dashboard">
+  <div class="top-bar">
+    <div class="top-bar-row">
+      <div>
+        <div class="greeting">Welcome back,</div>
+        <div class="user-name">Kholoud 👋</div>
+      </div>
+      <button class="notif-btn" onclick="showScreen('report-screen')">🔔</button>
+    </div>
+    <div class="portfolio-card">
+      <div class="portfolio-label">Total Portfolio</div>
+      <div class="portfolio-amount" id="portfolio-total">QR 52,340</div>
+      <div class="portfolio-change">
+        <div class="change-item change-green">▲ +3.2% This Month</div>
+        <div class="change-item change-gray">Profit +QR 1,623</div>
+        <div class="change-item change-gray">4 Assets</div>
+      </div>
+      <div class="sharia-badge">🌙 Shariah-Certified Portfolio · AAOIFI</div>
+    </div>
+  </div>
+
+  <div class="content-area">
+    <!-- Quick Actions -->
+    <div class="quick-actions" style="margin-top:0">
+      <button class="quick-btn" onclick="showScreen('trading-screen')">
+        <div class="quick-btn-icon">💰</div>
+        <div class="quick-btn-label">Invest</div>
+      </button>
+      <button class="quick-btn" onclick="showToast('Coming Soon: Detailed Portfolio Page')">
+        <div class="quick-btn-icon">📊</div>
+        <div class="quick-btn-label">Portfolio</div>
+      </button>
+      <button class="quick-btn" onclick="showToast('✅ كل Your Investments حلال بموجب AAOIFI')">
+        <div class="quick-btn-icon">🔍</div>
+        <div class="quick-btn-label">Halal Check</div>
+      </button>
+      <button class="quick-btn" onclick="showPurificationModal()">
+        <div class="quick-btn-icon">🤲</div>
+        <div class="quick-btn-label">Purification</div>
+      </button>
+    </div>
+
+    <!-- Daily Alert -->
+    <div class="section-header">
+      <div class="section-title">📰 Today's Report</div>
+      <button class="see-all" onclick="showScreen('report-screen')">Full Report</button>
+    </div>
+
+    <div class="alert-card" onclick="showScreen('report-screen')">
+      <div class="alert-card-header">
+        <div class="alert-icon">📈</div>
+        <div class="alert-title">Market Summary - Today</div>
+        <div class="alert-time">1 hour ago</div>
+      </div>
+      <div class="alert-body">
+        Your Apple shares rose 2.1% today 🎉 · Gold at its highest this month · Your portfolio outperforms the market by 1.4%
+      </div>
+    </div>
+
+    <!-- Investments -->
+    <div class="section-header">
+      <div class="section-title">Your Investments</div>
+      <button class="see-all" onclick="showScreen('trading-screen')">View All</button>
+    </div>
+
+    <div class="invest-card">
+      <div class="invest-avatar" style="background:#1a1a2e">A</div>
+      <div class="invest-info">
+        <div class="invest-name">Apple Inc.</div>
+        <div class="invest-type">US Stocks · <span class="halal-tag">✓ Halal</span></div>
+      </div>
+      <div class="invest-amount">
+        <div class="invest-value">QR 18,200</div>
+        <div class="invest-change-pos">▲ +2.1%</div>
+      </div>
+    </div>
+
+    <div class="invest-card">
+      <div class="invest-avatar" style="background:#006400">ص</div>
+      <div class="invest-info">
+        <div class="invest-name">Qatar Growth Fund</div>
+        <div class="invest-type">Islamic Funds · <span class="halal-tag">✓ Halal</span></div>
+      </div>
+      <div class="invest-amount">
+        <div class="invest-value">QR 20,000</div>
+        <div class="invest-change-pos">▲ +4.5%</div>
+      </div>
+    </div>
+
+    <div class="invest-card">
+      <div class="invest-avatar" style="background:#8B0000">س</div>
+      <div class="invest-info">
+        <div class="invest-name">Sukuk حكومية قطرية</div>
+        <div class="invest-type">Sukuk · <span class="halal-tag">✓ Halal</span></div>
+      </div>
+      <div class="invest-amount">
+        <div class="invest-value">QR 14,140</div>
+        <div class="invest-change-pos">▲ +1.2%</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom Nav -->
+  <div class="bottom-nav">
+    <button class="nav-item active" onclick="setNav(this, 'dashboard')">
+      <span class="nav-icon">🏠</span>
+      <span class="nav-label">Home</span>
+    </button>
+    <button class="nav-item" onclick="setNav(this, 'trading-screen')">
+      <span class="nav-icon">📈</span>
+      <span class="nav-label">Market</span>
+    </button>
+    <button class="nav-item" onclick="setNav(this, 'chat-screen')">
+      <span class="nav-ai-btn">🤖</span>
+    </button>
+    <button class="nav-item" onclick="setNav(this, 'report-screen')">
+      <span class="nav-icon">📋</span>
+      <span class="nav-label">Reports</span>
+    </button>
+    <button class="nav-item" onclick="showToast('Account Page - Coming Soon')">
+      <span class="nav-icon">👤</span>
+      <span class="nav-label">Account</span>
+    </button>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════ AI CHAT ═══════════════════════════════ -->
+<div class="screen" id="chat-screen">
+  <div class="chat-header">
+    <button class="back-btn" onclick="goBack('dashboard')" style="color:white;font-size:20px">←</button>
+    <div class="chat-ai-avatar">🤖</div>
+    <div class="chat-ai-info">
+      <div class="chat-ai-name">AI Advisor</div>
+      <div class="chat-ai-status">AI-Powered · 100% Shariah-Compliant</div>
+    </div>
+  </div>
+
+  <div class="chat-messages" id="chat-messages">
+    <div class="msg msg-ai">
+      Hello Kholoud! 👋<br><br>
+      I'm your AI Financial Advisor at Athmaar. I can help you with:
+      <br>• فهم Your Investments وأدائها
+      <br>• Explaining any financial concept simply
+      <br>• Personalized investment recommendations
+      <br>• Verifying Shariah compliance
+      <br><br>
+      How can I help you today? 😊
+    </div>
+  </div>
+
+  <div class="suggestions">
+    <button class="suggestion-chip" onclick="sendSuggestion('ما هو أداء Portfolio هذا الشهر؟')">📊 Portfolio Performance</button>
+    <button class="suggestion-chip" onclick="sendSuggestion('How do I know if a stock is halal?')">🔍 Shariah Screening</button>
+    <button class="suggestion-chip" onclick="sendSuggestion('ما هو الSukuk؟')">📚 شرح الSukuk</button>
+    <button class="suggestion-chip" onclick="sendSuggestion('What is your recommendation for me this month?')">💡 This Month's Recommendation</button>
+    <button class="suggestion-chip" onclick="sendSuggestion('كيف أحسب Purification؟')">🤲 Purification</button>
+  </div>
+
+  <div class="chat-input-area">
+    <button class="send-btn" onclick="sendMessage()">➤</button>
+    <textarea class="chat-input" id="chat-input" placeholder="Type your question here..." rows="1"
+      onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();sendMessage()}"
+      oninput="this.style.height='auto';this.style.height=this.scrollHeight+'px'"></textarea>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════ PAPER TRADING ═══════════════════════════════ -->
+<div class="screen" id="trading-screen">
+  <div class="screen-header">
+    <button class="back-btn" onclick="goBack('dashboard')" style="color:white;font-size:20px">←</button>
+    <div>
+      <div class="header-title">Investment Simulator</div>
+      <div class="header-sub">Practice safely with virtual funds</div>
+    </div>
+    <div class="sim-badge" style="margin-right:auto">Simulator</div>
+  </div>
+
+  <div style="background:linear-gradient(135deg,var(--navy),#1a3a5c);padding:0 20px 20px">
+    <div class="simulator-balance">
+      <div>
+        <div class="sim-label">Your Virtual Balance</div>
+        <div class="sim-amount" id="sim-balance" style="color:white">QR 100,000</div>
+      </div>
+      <div>
+        <div class="sim-label">Profit / Loss</div>
+        <div class="sim-amount" id="sim-pnl" style="color:var(--teal)">+QR 0</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="trading-content">
+    <div class="market-tabs">
+      <button class="tab-btn active" onclick="filterStocks('all', this)">All</button>
+      <button class="tab-btn" onclick="filterStocks('stocks', this)">Stocks</button>
+      <button class="tab-btn" onclick="filterStocks('sukuk', this)">Sukuk</button>
+      <button class="tab-btn" onclick="filterStocks('gold', this)">Gold</button>
+      <button class="tab-btn" onclick="filterStocks('funds', this)">Funds</button>
+    </div>
+
+    <div id="stocks-list"></div>
+  </div>
+
+  <!-- Bottom Nav copy for trading screen -->
+  <div class="bottom-nav">
+    <button class="nav-item" onclick="setNav(this, 'dashboard')">
+      <span class="nav-icon">🏠</span>
+      <span class="nav-label">Home</span>
+    </button>
+    <button class="nav-item active" onclick="setNav(this, 'trading-screen')">
+      <span class="nav-icon">📈</span>
+      <span class="nav-label">Market</span>
+    </button>
+    <button class="nav-item" onclick="setNav(this, 'chat-screen')">
+      <span class="nav-ai-btn">🤖</span>
+    </button>
+    <button class="nav-item" onclick="setNav(this, 'report-screen')">
+      <span class="nav-icon">📋</span>
+      <span class="nav-label">Reports</span>
+    </button>
+    <button class="nav-item" onclick="showToast('Account Page - Coming Soon')">
+      <span class="nav-icon">👤</span>
+      <span class="nav-label">Account</span>
+    </button>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════ REPORTS ═══════════════════════════════ -->
+<div class="screen" id="report-screen">
+  <div class="screen-header">
+    <button class="back-btn" onclick="goBack('dashboard')" style="color:white;font-size:20px">←</button>
+    <div>
+      <div class="header-title">Reports والتنبيهات</div>
+      <div class="header-sub">Last updated: Today, 9:41 AM</div>
+    </div>
+  </div>
+
+  <div class="report-content">
+    <!-- Daily Summary -->
+    <div class="report-card">
+      <div class="report-card-title">📰 Today's Summary</div>
+      <div class="report-row">
+        <span class="report-row-label">S&P 500 Shariah</span>
+        <span class="report-row-value report-row-pos">▲ +0.8%</span>
+      </div>
+      <div class="report-row">
+        <span class="report-row-label">سوق الStocks القطري</span>
+        <span class="report-row-value report-row-pos">▲ +0.3%</span>
+      </div>
+      <div class="report-row">
+        <span class="report-row-label">الGold (أوقية)</span>
+        <span class="report-row-value report-row-pos">▲ +1.2%</span>
+      </div>
+      <div class="report-row">
+        <span class="report-row-label">الSukuk الحكومية</span>
+        <span class="report-row-value" style="color:var(--gray)">◆ Stable</span>
+      </div>
+    </div>
+
+    <!-- Portfolio Performance -->
+    <div class="report-card">
+      <div class="report-card-title">📊 Your Portfolio Performance</div>
+      <div class="report-row">
+        <span class="report-row-label">Total Value</span>
+        <span class="report-row-value">QR 52,340</span>
+      </div>
+      <div class="report-row">
+        <span class="report-row-label">This Month Profit</span>
+        <span class="report-row-value report-row-pos">+QR 1,623</span>
+      </div>
+      <div class="report-row">
+        <span class="report-row-label">Expected Annual Return</span>
+        <span class="report-row-value report-row-pos">٧.٨٪</span>
+      </div>
+      <div class="report-row">
+        <span class="report-row-label">Purification المستحق</span>
+        <span class="report-row-value" style="color:var(--teal)">QR 12</span>
+      </div>
+    </div>
+
+    <!-- AI Recommendation -->
+    <div class="report-card" style="background:linear-gradient(135deg,#e6faf5,#f0fffc);border:1px solid rgba(2,195,154,0.3)">
+      <div class="report-card-title">🤖 AI Recommendation</div>
+      <div style="font-size:14px;color:var(--gray);line-height:1.7">
+        Your portfolio is performing excellently this month! 🎉<br><br>
+        <strong>My Recommendation:</strong> Gold is rallying strongly — it may be a good time to add 5-10% of your portfolio in Shariah-compliant commodities.<br><br>
+        <strong>Alert:</strong> Apple is approaching rebalancing point (35% of portfolio) — I will notify you if it exceeds 40%.
+      </div>
+      <button class="btn-primary" style="margin-top:14px;max-width:100%;font-size:14px;padding:12px"
+        onclick="showScreen('chat-screen')">Talk to AI Advisor</button>
+    </div>
+
+    <!-- Weekly Report -->
+    <div class="report-card">
+      <div class="report-card-title">📅 Weekly Report</div>
+      <div class="market-summary-grid">
+        <div class="market-mini">
+          <div class="market-mini-name">Top Performer</div>
+          <div class="market-mini-val">صندوق قطر</div>
+          <div class="market-mini-change report-row-pos">▲ +4.5%</div>
+        </div>
+        <div class="market-mini">
+          <div class="market-mini-name">Portfolio Size</div>
+          <div class="market-mini-val">QR 52,340</div>
+          <div class="market-mini-change" style="color:var(--gray)">Total Portfolio</div>
+        </div>
+        <div class="market-mini">
+          <div class="market-mini-name">Purification هذا الشهر</div>
+          <div class="market-mini-val" style="color:var(--teal)">QR 12</div>
+          <div class="market-mini-change" style="color:var(--gray)">Suggested Donation</div>
+        </div>
+        <div class="market-mini">
+          <div class="market-mini-name">Goal Progress</div>
+          <div class="market-mini-val">٢٦٪</div>
+          <div class="market-mini-change report-row-pos">of Annual Goal</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom Nav -->
+  <div class="bottom-nav">
+    <button class="nav-item" onclick="setNav(this, 'dashboard')">
+      <span class="nav-icon">🏠</span>
+      <span class="nav-label">Home</span>
+    </button>
+    <button class="nav-item" onclick="setNav(this, 'trading-screen')">
+      <span class="nav-icon">📈</span>
+      <span class="nav-label">Market</span>
+    </button>
+    <button class="nav-item" onclick="setNav(this, 'chat-screen')">
+      <span class="nav-ai-btn">🤖</span>
+    </button>
+    <button class="nav-item active" onclick="setNav(this, 'report-screen')">
+      <span class="nav-icon">📋</span>
+      <span class="nav-label">Reports</span>
+    </button>
+    <button class="nav-item" onclick="showToast('Account Page - Coming Soon')">
+      <span class="nav-icon">👤</span>
+      <span class="nav-label">Account</span>
+    </button>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════ TRADE MODAL ═══════════════════════════════ -->
+<div class="modal-overlay" id="trade-modal">
+  <div class="modal">
+    <div class="modal-handle"></div>
+    <div class="modal-title" id="modal-title">Buy Apple Inc.</div>
+
+    <div class="trade-input-group">
+      <div class="trade-label">عدد الStocks</div>
+      <input type="number" class="trade-input" id="trade-qty" value="1" min="1"
+        oninput="updateTradeSummary()">
+    </div>
+
+    <div class="trade-summary" id="trade-summary">
+      <div class="report-row">
+        <span class="report-row-label">Share Price</span>
+        <span class="report-row-value" id="modal-price">QR 682</span>
+      </div>
+      <div class="report-row">
+        <span class="report-row-label">Total</span>
+        <span class="report-row-value" id="modal-total">QR 682</span>
+      </div>
+      <div class="report-row">
+        <span class="report-row-label">Available Balance</span>
+        <span class="report-row-value" id="modal-balance">QR 100,000</span>
+      </div>
+      <div class="report-row">
+        <span class="report-row-label">Shariah Status</span>
+        <span class="report-row-value" style="color:var(--teal)">✅ Halal</span>
+      </div>
+    </div>
+
+    <button class="btn-primary" id="confirm-trade-btn" onclick="confirmTrade()"
+      style="background:var(--green);color:white;max-width:100%;margin-bottom:10px">
+      Confirm Purchase
+    </button>
+    <button class="btn-primary" onclick="closeModal()"
+      style="background:var(--light-gray);color:var(--navy);max-width:100%">
+      Cancel
+    </button>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════ PURIFICATION MODAL ═══════════════════════════════ -->
+<div class="modal-overlay" id="purif-modal">
+  <div class="modal">
+    <div class="modal-handle"></div>
+    <div class="modal-title">🤲 Purification الشرعي</div>
+
+    <div class="report-card" style="margin-bottom:16px">
+      <div class="report-row">
+        <span class="report-row-label">Total Portfolio</span>
+        <span class="report-row-value">QR 52,340</span>
+      </div>
+      <div class="report-row">
+        <span class="report-row-label">نسبة Purification (AAOIFI)</span>
+        <span class="report-row-value">0.023%</span>
+      </div>
+      <div class="report-row">
+        <span class="report-row-label">Amount to Purify</span>
+        <span class="report-row-value" style="color:var(--teal)">QR 12</span>
+      </div>
+    </div>
+
+    <div style="font-size:13px;color:var(--gray);margin-bottom:16px;line-height:1.7;background:var(--light-gray);padding:12px;border-radius:10px">
+      💡 Purification is automatically calculated based on AAOIFI standards. The amount is donated to approved Qatari charities.
+    </div>
+
+    <button class="btn-primary" onclick="showToast('✅ تم التبرع بـ QR 12 لقطر الخير');closeModal()"
+      style="max-width:100%;margin-bottom:10px">
+      تبرع الآن لقطر الخير (QR 12)
+    </button>
+    <button class="btn-primary" onclick="closeModal()"
+      style="background:var(--light-gray);color:var(--navy);max-width:100%">
+      Later
+    </button>
+  </div>
+</div>
+
+<script>
+// ── DATA ──────────────────────────────────────────────────────────────────
+const stocks = [
+  { id: 'aapl', name: 'Apple Inc.', ticker: 'AAPL', type: 'stocks', price: 682, change: 2.1, halal: true, icon: 'A', color: '#1a1a2e' },
+  { id: 'msft', name: 'Microsoft', ticker: 'MSFT', type: 'stocks', price: 1190, change: 0.8, halal: true, icon: 'M', color: '#0078d4' },
+  { id: 'nvda', name: 'NVIDIA', ticker: 'NVDA', type: 'stocks', price: 3100, change: -1.2, halal: true, icon: 'N', color: '#76b900' },
+  { id: 'qatar_gov', name: 'Sukuk حكومية قطرية', ticker: 'QAT-GOV', type: 'sukuk', price: 1000, change: 0.3, halal: true, icon: 'ص', color: '#8B0000' },
+  { id: 'qatar_sukuk', name: 'Sukuk بنك قطر الإسلامي', ticker: 'QIB-SUK', type: 'sukuk', price: 500, change: 0.5, halal: true, icon: 'ق', color: '#006400' },
+  { id: 'gold', name: 'الGold (XAU)', ticker: 'XAU/QAR', type: 'gold', price: 7200, change: 1.2, halal: true, icon: '🥇', color: '#B8860B' },
+  { id: 'qatar_fund', name: 'Qatar Growth Fund', ticker: 'QGF', type: 'funds', price: 250, change: 4.5, halal: true, icon: 'ف', color: '#2E4057' },
+  { id: 'gulf_fund', name: 'Gulf Islamic Fund', ticker: 'GIF', type: 'funds', price: 180, change: 2.8, halal: true, icon: 'خ', color: '#1B4332' },
+];
+
+let simBalance = 100000;
+let simPnl = 0;
+let simHoldings = {};
+let currentStock = null;
+let isBuying = true;
+let currentTab = 'all';
+
+// ── ONBOARDING ───────────────────────────────────────────────────────────
+const onboardSteps = [
+  {
+    label: 'Step 1 of 5',
+    question: 'What is your main investment goal?',
+    type: 'grid',
+    options: [
+      { icon: '🏠', label: 'Buy a Home', desc: 'Save for a down payment' },
+      { icon: '👴', label: 'Retirement', desc: 'Build a comfortable future' },
+      { icon: '📚', label: 'Children Education', desc: 'Invest in their future' },
+      { icon: '💰', label: 'Extra Income', desc: 'Monthly passive income' },
+    ]
+  },
+  {
+    label: 'Step 2 of 5',
+    question: 'What is your investment time horizon?',
+    type: 'list',
+    options: [
+      { icon: '⚡', label: 'Short (1-2 years)', sub: 'I may need liquidity soon' },
+      { icon: '📊', label: 'Medium (3-5 years)', sub: 'Looking for moderate growth' },
+      { icon: '🚀', label: 'Long (5-10 years)', sub: 'Thinking long-term' },
+      { icon: '♾️', label: 'Open-ended', sub: 'No specific timeframe' },
+    ]
+  },
+  {
+    label: 'Step 3 of 5',
+    question: 'What is your risk tolerance?',
+    type: 'list',
+    options: [
+      { icon: '🛡️', label: 'Very Conservative', sub: 'Protect my capital first' },
+      { icon: '⚖️', label: 'Balanced', sub: 'Good returns with moderate risk' },
+      { icon: '📈', label: 'Growth', sub: 'Higher risk for higher returns' },
+      { icon: '🔥', label: 'Aggressive', sub: 'Maximum returns possible' },
+    ]
+  },
+  {
+    label: 'Step 4 of 5',
+    question: 'How much can you invest per month?',
+    type: 'slider',
+    min: 1000, max: 20000, default: 1000
+  },
+  {
+    label: 'Step 5 of 5',
+    question: 'How important is Shariah compliance to you?',
+    type: 'list',
+    options: [
+      { icon: '☪️', label: 'Essential', sub: 'I only invest in confirmed halal' },
+      { icon: '✅', label: 'Very Important', sub: 'I always prefer halal' },
+      { icon: '📋', label: 'Somewhat Important', sub: 'I consider it when possible' },
+      { icon: '🤔', label: 'Learning', sub: 'I want to learn more' },
+    ]
+  }
+];
+
+let currentStep = 0;
+let selections = {};
+
+function renderStep() {
+  const step = onboardSteps[currentStep];
+  document.getElementById('step-label').textContent = step.label;
+  document.getElementById('step-question').textContent = step.question;
+  document.getElementById('progress').style.width = ((currentStep + 1) / 5 * 100) + '%';
+
+  const body = document.getElementById('onboard-body');
+
+  if (step.type === 'grid') {
+    body.innerHTML = `
+      <div class="options-grid">
+        ${step.options.map((o, i) => `
+          <div class="option-card ${selections[currentStep] === i ? 'selected' : ''}"
+            onclick="selectOption(${i})">
+            <div class="option-icon">${o.icon}</div>
+            <div class="option-label">${o.label}</div>
+            <div class="option-desc">${o.desc}</div>
+          </div>
+        `).join('')}
+      </div>
+      <button class="btn-primary" style="background:var(--navy);color:white;max-width:100%"
+        onclick="nextStep()">Next →</button>
+    `;
+  } else if (step.type === 'list') {
+    body.innerHTML = `
+      <div class="options-list">
+        ${step.options.map((o, i) => `
+          <div class="option-row ${selections[currentStep] === i ? 'selected' : ''}"
+            onclick="selectOption(${i})">
+            <div class="option-row-icon">${o.icon}</div>
+            <div class="option-row-text">
+              <div class="option-row-label">${o.label}</div>
+              <div class="option-row-sub">${o.sub}</div>
+            </div>
+            ${selections[currentStep] === i ? '<div style="color:var(--teal);font-size:20px">✓</div>' : ''}
+          </div>
+        `).join('')}
+      </div>
+      <div style="margin-top:16px">
+        <button class="btn-primary" style="background:var(--navy);color:white;max-width:100%"
+          onclick="nextStep()">Next →</button>
+      </div>
+    `;
+  } else if (step.type === 'slider') {
+    const val = selections[currentStep] || step.default;
+    body.innerHTML = `
+      <div class="slider-container">
+        <div class="amount-display">${val.toLocaleString('ar')} ر.ق</div>
+        <div class="amount-label">per month</div>
+        <input type="range" min="${step.min}" max="${step.max}" value="${val}"
+          oninput="updateSlider(this.value)"
+          style="direction:ltr">
+        <div style="display:flex;justify-content:space-between;margin-top:8px;font-size:12px;color:var(--gray)">
+          <span>${step.min} ر.ق</span>
+          <span>${step.max.toLocaleString()} ر.ق</span>
+        </div>
+      </div>
+      <div class="options-list" style="margin-top:8px">
+        ${[1000,2000,3000,5000,10000].map(v => `
+          <div class="option-row ${(selections[currentStep]||step.default) === v ? 'selected' : ''}"
+            onclick="selectAmount(${v})">
+            <div class="option-row-text">
+              <div class="option-row-label">${v.toLocaleString()} ر.ق / per month</div>
+            </div>
+          </div>
+        `).join('')}
+      </div>
+      <div style="margin-top:16px">
+        <button class="btn-primary" style="background:var(--navy);color:white;max-width:100%"
+          onclick="nextStep()">Next →</button>
+      </div>
+    `;
+  }
+}
+
+function selectOption(i) {
+  selections[currentStep] = i;
+  renderStep();
+}
+
+function updateSlider(val) {
+  selections[currentStep] = parseInt(val);
+  document.querySelector('.amount-display').textContent = parseInt(val).toLocaleString('ar') + ' ر.ق';
+}
+
+function selectAmount(val) {
+  selections[currentStep] = val;
+  renderStep();
+}
+
+function nextStep() {
+  if (currentStep < onboardSteps.length - 1) {
+    currentStep++;
+    renderStep();
+  } else {
+    showScreen('dashboard');
+    showToast('🎉 Your personal portfolio has been created!');
+  }
+}
+
+function skipOnboarding() { showScreen('dashboard'); }
+
+// ── NAVIGATION ────────────────────────────────────────────────────────────
+function showScreen(id) {
+  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  window.scrollTo(0, 0);
+}
+
+function goBack(to) { showScreen(to); }
+
+function setNav(btn, screen) {
+  document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+  btn.classList.add('active');
+  showScreen(screen);
+}
+
+// ── TOAST ─────────────────────────────────────────────────────────────────
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 2500);
+}
+
+// ── PAPER TRADING ─────────────────────────────────────────────────────────
+function renderStocks(type = 'all') {
+  const list = document.getElementById('stocks-list');
+  const filtered = type === 'all' ? stocks : stocks.filter(s => s.type === type);
+
+  list.innerHTML = filtered.map(s => `
+    <div class="stock-card">
+      <div class="stock-header">
+        <div>
+          <div class="stock-name">${s.name}</div>
+          <div class="stock-ticker">${s.ticker} · <span class="halal-tag">✓ Halal</span></div>
+        </div>
+        <div>
+          <div class="stock-price">${s.price.toLocaleString('ar')} ر.ق</div>
+          <div class="${s.change >= 0 ? 'stock-change-pos' : 'stock-change-neg'}">
+            ${s.change >= 0 ? '▲' : '▼'} ${Math.abs(s.change)}٪
+          </div>
+        </div>
+      </div>
+      <div class="stock-actions">
+        <button class="buy-btn" onclick="openTradeModal('${s.id}', true)">Buy +</button>
+        <button class="sell-btn" onclick="openTradeModal('${s.id}', false)">Sell −</button>
+      </div>
+    </div>
+  `).join('');
+}
+
+function filterStocks(type, btn) {
+  currentTab = type;
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  renderStocks(type);
+}
+
+function openTradeModal(stockId, buying) {
+  currentStock = stocks.find(s => s.id === stockId);
+  isBuying = buying;
+  document.getElementById('modal-title').textContent =
+    (buying ? 'Buy ' : 'Sell ') + currentStock.name;
+  document.getElementById('confirm-trade-btn').textContent =
+    buying ? 'تأكيد الBuy ✓' : 'تأكيد الSell ✓';
+  document.getElementById('confirm-trade-btn').style.background =
+    buying ? 'var(--green)' : 'var(--red)';
+  document.getElementById('trade-qty').value = 1;
+  updateTradeSummary();
+  document.getElementById('trade-modal').classList.add('open');
+}
+
+function updateTradeSummary() {
+  if (!currentStock) return;
+  const qty = parseInt(document.getElementById('trade-qty').value) || 1;
+  const total = qty * currentStock.price;
+  document.getElementById('modal-price').textContent = currentStock.price.toLocaleString('ar') + ' ر.ق';
+  document.getElementById('modal-total').textContent = total.toLocaleString('ar') + ' ر.ق';
+  document.getElementById('modal-balance').textContent = simBalance.toLocaleString('ar') + ' ر.ق';
+}
+
+function confirmTrade() {
+  const qty = parseInt(document.getElementById('trade-qty').value) || 1;
+  const total = qty * currentStock.price;
+
+  if (isBuying) {
+    if (total > simBalance) { showToast('❌ Insufficient balance'); return; }
+    simBalance -= total;
+    simHoldings[currentStock.id] = (simHoldings[currentStock.id] || 0) + qty;
+    simPnl += total * (currentStock.change / 100);
+    showToast(`✅ تم Buy ${qty} من ${currentStock.name}`);
+  } else {
+    if (!simHoldings[currentStock.id] || simHoldings[currentStock.id] < qty) {
+      showToast('❌ Insufficient holdings for this asset'); return;
+    }
+    simBalance += total;
+    simHoldings[currentStock.id] -= qty;
+    showToast(`✅ تم Sell ${qty} من ${currentStock.name}`);
+  }
+
+  document.getElementById('sim-balance').textContent = simBalance.toLocaleString('ar') + ' ر.ق';
+  document.getElementById('sim-pnl').textContent =
+    (simPnl >= 0 ? '+' : '') + Math.round(simPnl).toLocaleString('ar') + ' ر.ق';
+  document.getElementById('sim-pnl').style.color = simPnl >= 0 ? 'var(--teal)' : 'var(--red)';
+
+  closeModal();
+}
+
+function closeModal() {
+  document.querySelectorAll('.modal-overlay').forEach(m => m.classList.remove('open'));
+}
+
+function showPurificationModal() {
+  document.getElementById('purif-modal').classList.add('open');
+}
+
+// ── AI CHAT ───────────────────────────────────────────────────────────────
+const SYSTEM_PROMPT = `أنت "مستشار إثمار الذكي" — مستشار مالي ذكي ومتخصص في المنصة.
+
+شخصيتك:
+- تتكلم العربي الخليجي البسيط والواضح
+- لطيف، صبور، وشارح ببساطة للمبتدئين
+- Always focus on halal Islamic investments
+- إجاباتك مختصرة وعملية (٣-٥ جمل كحد أقصى)
+
+تخصصك:
+- Investment types: Stocks, Sukuk, REITs, Gold, Funds
+- معايير AAOIFI للشريعة الإسلامية
+- حساب Purification (Tatheer)
+- Kholoud's portfolio: Apple (QR 18,200), Qatar Fund (QR 20,000), Qatar Sukuk (QR 14,140)
+- Purification المستحق: QR 12
+
+قواعد مهمة:
+- لا تقدم نفسك كـ ChatGPT أو AI عام — أنت "مستشار إثمار"
+- If asked about non-investment topics, politely redirect
+- دائماً أضف تحذير المخاطرة عند الحاجة
+- استخدم الأرقام بالعربي (١، ٢، ٣)`;
+
+async function callAI(userMessage) {
+  await new Promise(r => setTimeout(r, 1200 + Math.random() * 800));
+  const msg = userMessage.toLowerCase();
+  
+  if (msg.includes('performance') || msg.includes('portfolio') || msg.includes('month')) {
+    return `Your portfolio is performing great this month! 📊
+
+Total Portfolio: QR 52,340
+Profit: +QR 1,623 (+3.2%)
+
+Top Performer: Qatar Growth Fund at +4.5% 🏆
+
+Your portfolio is outperforming the market by 1.4% — keep it up!`;
+  }
+  if (msg.includes('halal') || msg.includes('shariah') || msg.includes('screen') || msg.includes('compliant')) {
+    return `Athmaar's Shariah screening uses AAOIFI international standards ✅
+
+We check 3 things for every investment:
+1. Business activity (no alcohol, gambling, etc.)
+2. Debt ratio (below 33%)
+3. Non-compliant income (below 5%)
+
+All your current investments are 100% Halal ✅`;
+  }
+  if (msg.includes('sukuk')) {
+    return `Sukuk is the Islamic alternative to bonds 📋
+
+Instead of lending money with interest (riba), you buy a share in a real asset — like a property or project.
+
+Key difference:
+• Bond = loan with interest ❌
+• Sukuk = partnership in an asset ✅
+
+Qatar Government Sukuk in your portfolio gives you 1.2% annually with very high security 🇶🇦`;
+  }
+  if (msg.includes('purif') || msg.includes('zakat') || msg.includes('tatheer')) {
+    return `Purification (Tatheer) cleanses your income from any small non-compliant portion 🤲
+
+Your current portfolio:
+Total: QR 52,340
+Purification Rate (AAOIFI): 0.023%
+Amount Due: Only QR 12
+
+Athmaar calculates this automatically every month and lets you donate to approved Qatari charities with one tap 💙`;
+  }
+  if (msg.includes('recommend') || msg.includes('suggest') || msg.includes('advice')) {
+    return `My recommendation for you this month 💡
+
+Your portfolio is well-balanced, but gold is showing strong momentum (+1.2% today).
+
+Suggestions:
+• Add 5-10% gold allocation
+• Hold Qatar Growth Fund (excellent performance)
+• Monitor Apple before adding more
+
+⚠️ This is educational guidance, not formal financial advice.`;
+  }
+  if (msg.includes('gold')) {
+    return `Gold at Athmaar is available in a Shariah-compliant way ✅
+
+Gold Today: QR 7,200/oz
+Change: ▲ +1.2%
+
+Why Gold?
+• Hedge against inflation
+• Safe haven in uncertain times
+• High liquidity
+
+Analysts recommend 5-15% of portfolio maximum in gold.`;
+  }
+  if (msg.includes('begin') || msg.includes('start') || msg.includes('new') || msg.includes('how')) {
+    return `Welcome to the world of investing! 🌱
+
+Your first steps:
+1. Define your goal (home? retirement? extra income?)
+2. Start with a comfortable amount (even QR 1,000/month)
+3. Diversify across 3+ asset types
+4. Stay consistent and ignore short-term fluctuations
+
+Most important: starting now beats waiting! 💪`;
+  }
+  if (msg.includes('risk') || msg.includes('loss') || msg.includes('afraid') || msg.includes('scared')) {
+    return `Fear of loss is completely natural ✅
+
+The reality:
+• Inflation erodes your savings every year
+• Diversification significantly reduces risk
+• Long-term investing always wins historically
+
+At Athmaar:
+• We start with lowest risk (sukuk + gold)
+• We grow with you gradually
+• The simulator lets you learn without real losses 😊`;
+  }
+  const defaults = [
+    `Great question! 😊
+
+I specialize in Islamic investment guidance and Athmaar's platform.
+
+Try asking me about:
+• Your portfolio performance
+• Shariah compliance screening
+• Sukuk or Gold explained
+• Investment recommendations`,
+    `I'd be happy to help! 🤔
+
+Could you clarify what you mean? Are you asking about:
+• Your current investment performance?
+• Information about a specific investment type?
+• A recommendation based on your goals?
+
+I'm here to help 💙`,
+  ];
+  return defaults[Math.floor(Math.random() * defaults.length)];
+}
+
+
+function addMessage(text, isUser) {
+  const container = document.getElementById('chat-messages');
+  const div = document.createElement('div');
+  div.className = 'msg ' + (isUser ? 'msg-user' : 'msg-ai');
+  div.textContent = text;
+  container.appendChild(div);
+  container.scrollTop = container.scrollHeight;
+}
+
+function showTyping() {
+  const container = document.getElementById('chat-messages');
+  const div = document.createElement('div');
+  div.id = 'typing';
+  div.className = 'typing-indicator';
+  div.innerHTML = '<div class="typing-dot"></div><div class="typing-dot"></div><div class="typing-dot"></div>';
+  container.appendChild(div);
+  container.scrollTop = container.scrollHeight;
+}
+
+function hideTyping() {
+  const t = document.getElementById('typing');
+  if (t) t.remove();
+}
+
+async function sendMessage() {
+  const input = document.getElementById('chat-input');
+  const text = input.value.trim();
+  if (!text) return;
+
+  input.value = '';
+  input.style.height = 'auto';
+  addMessage(text, true);
+  showTyping();
+
+  const response = await callAI(text);
+  hideTyping();
+  addMessage(response, false);
+}
+
+async function sendSuggestion(text) {
+  addMessage(text, true);
+  showTyping();
+  const response = await callAI(text);
+  hideTyping();
+  addMessage(response, false);
+}
+
+// ── INIT ──────────────────────────────────────────────────────────────────
+renderStep();
+renderStocks();
+
+// Close modals on overlay click
+document.querySelectorAll('.modal-overlay').forEach(overlay => {
+  overlay.addEventListener('click', (e) => {
+    if (e.target === overlay) closeModal();
+  });
+});
+</script>
+</body>
+</html>
