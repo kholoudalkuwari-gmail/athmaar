@@ -860,6 +860,174 @@
     100% { opacity: 0; }
   }
 
+
+  /* ── ACCOUNT SCREEN ── */
+  #account-screen { background: var(--light-gray); display: none; flex-direction: column; }
+  #account-screen.active { display: flex; }
+
+  .profile-head {
+    background: linear-gradient(135deg, var(--navy), #1a3a5c);
+    padding: 50px 20px 34px;
+    text-align: center;
+    color: #fff;
+  }
+  .avatar-lg {
+    width: 76px; height: 76px;
+    border-radius: 24px;
+    background: var(--teal);
+    color: var(--navy);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 30px; font-weight: 800;
+    margin: 0 auto 12px;
+  }
+  .profile-name { font-size: 20px; font-weight: 700; }
+  .profile-mail { font-size: 13px; color: rgba(255,255,255,.55); margin-top: 3px; }
+  .profile-chip {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: rgba(2,195,154,.15);
+    border: 1px solid rgba(2,195,154,.35);
+    color: var(--teal);
+    padding: 5px 12px; border-radius: 20px;
+    font-size: 12px; margin-top: 12px;
+  }
+
+  .account-body { padding: 0 16px 100px; margin-top: -18px; }
+
+  .acct-stats {
+    display: grid; grid-template-columns: 1fr 1fr 1fr;
+    gap: 8px; margin-bottom: 18px;
+  }
+  .acct-stat {
+    background: #fff; border-radius: 14px; padding: 14px 8px;
+    text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,.06);
+  }
+  .acct-stat-val { font-size: 16px; font-weight: 800; color: var(--navy); }
+  .acct-stat-lbl { font-size: 11px; color: var(--gray); margin-top: 3px; }
+
+  .acct-group { margin-bottom: 18px; }
+  .acct-group-title {
+    font-size: 12px; color: var(--gray); font-weight: 700;
+    margin: 0 4px 8px; letter-spacing: .5px;
+  }
+  .acct-card {
+    background: #fff; border-radius: 16px; overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,.05);
+  }
+  .acct-row {
+    display: flex; align-items: center; gap: 12px;
+    padding: 14px 16px; cursor: pointer;
+    border-bottom: 1px solid var(--light-gray);
+    transition: background .15s;
+  }
+  .acct-row:last-child { border-bottom: none; }
+  .acct-row:hover { background: #fafafa; }
+  .acct-row-ic { width: 22px; display: flex; align-items: center; justify-content: center; }
+  .acct-row-txt { flex: 1; }
+  .acct-row-lbl { font-size: 14px; font-weight: 600; color: var(--navy); }
+  .acct-row-sub { font-size: 12px; color: var(--gray); margin-top: 1px; }
+  .acct-row-val { font-size: 13px; color: var(--gray); }
+  .acct-arrow { color: var(--border); font-size: 18px; }
+
+  .risk-pill {
+    background: #e6faf5; color: var(--teal2);
+    padding: 3px 10px; border-radius: 8px;
+    font-size: 11px; font-weight: 700;
+  }
+  .demo-note {
+    background: #FFF7E6; border: 1px solid #F5D48A;
+    color: #8A6100; border-radius: 12px;
+    padding: 11px 14px; font-size: 12px; line-height: 1.6;
+    margin-bottom: 16px;
+  }
+
+
+  /* ── PORTFOLIO & SCREENING SCREENS ── */
+  #portfolio-screen, #screening-screen { background: var(--light-gray); display: none; flex-direction: column; }
+  #portfolio-screen.active, #screening-screen.active { display: flex; }
+
+  .pf-summary {
+    background: linear-gradient(135deg, var(--navy), #1a3a5c);
+    padding: 46px 20px 26px; color: #fff;
+  }
+  .pf-total-lbl { font-size: 13px; color: rgba(255,255,255,.55); }
+  .pf-total { font-size: 34px; font-weight: 800; letter-spacing: -1px; margin-top: 4px; }
+  .pf-delta { font-size: 13px; color: var(--teal); margin-top: 6px; }
+
+  .pf-body { padding: 16px 16px 100px; overflow-y: auto; }
+
+  .alloc-bar {
+    display: flex; height: 14px; border-radius: 8px;
+    overflow: hidden; margin: 4px 0 14px;
+  }
+  .alloc-seg { height: 100%; }
+
+  .alloc-legend { display: flex; flex-direction: column; gap: 9px; }
+  .alloc-item { display: flex; align-items: center; gap: 10px; }
+  .alloc-dot { width: 11px; height: 11px; border-radius: 4px; flex-shrink: 0; }
+  .alloc-name { font-size: 13px; font-weight: 600; flex: 1; }
+  .alloc-pct { font-size: 13px; font-weight: 700; color: var(--navy); }
+  .alloc-val { font-size: 12px; color: var(--gray); min-width: 74px; text-align: end; }
+
+  .holding {
+    background: #fff; border-radius: 16px; padding: 14px 16px;
+    margin-bottom: 10px; box-shadow: 0 2px 8px rgba(0,0,0,.05);
+  }
+  .holding-top { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+  .holding-name { font-size: 15px; font-weight: 700; flex: 1; }
+  .holding-val { font-size: 15px; font-weight: 700; text-align: end; }
+  .holding-meta { display: flex; gap: 14px; flex-wrap: wrap; }
+  .holding-cell { font-size: 11.5px; color: var(--gray); }
+  .holding-cell b { color: var(--navy); font-weight: 700; }
+
+  .scr-card {
+    background: #fff; border-radius: 16px; padding: 16px;
+    margin-bottom: 11px; box-shadow: 0 2px 8px rgba(0,0,0,.05);
+  }
+  .scr-head { display: flex; align-items: center; gap: 11px; margin-bottom: 12px; }
+  .scr-name { font-size: 15px; font-weight: 700; flex: 1; }
+  .scr-pass {
+    background: #e6faf5; color: var(--teal2);
+    padding: 4px 11px; border-radius: 8px;
+    font-size: 11px; font-weight: 700;
+    display: inline-flex; align-items: center; gap: 4px;
+  }
+  .scr-test { padding: 8px 0; border-top: 1px solid var(--light-gray); }
+  .scr-test-row { display: flex; align-items: center; gap: 8px; }
+  .scr-test-lbl { font-size: 12.5px; color: var(--gray); flex: 1; }
+  .scr-test-val { font-size: 12.5px; font-weight: 700; color: var(--navy); }
+  .scr-test-max { font-size: 11px; color: var(--gray); }
+  .scr-meter { height: 5px; background: var(--light-gray); border-radius: 3px; margin-top: 6px; overflow: hidden; }
+  .scr-meter-fill { height: 100%; background: var(--teal); border-radius: 3px; }
+
+  .info-band {
+    background: #fff; border-radius: 16px; padding: 15px 16px;
+    margin-bottom: 14px; box-shadow: 0 2px 8px rgba(0,0,0,.05);
+    font-size: 12.5px; color: var(--gray); line-height: 1.7;
+  }
+  .info-band b { color: var(--navy); }
+
+
+  /* Free amount input */
+  .amount-input-wrap {
+    display: flex; align-items: center; justify-content: center;
+    gap: 8px; margin-bottom: 4px;
+  }
+  .amount-input {
+    font-family: inherit;
+    font-size: 34px; font-weight: 800;
+    color: var(--teal);
+    border: none; border-bottom: 2px solid var(--border);
+    background: transparent; outline: none;
+    text-align: center; width: 190px;
+    padding: 4px 0; transition: border-color .2s;
+  }
+  .amount-input:focus { border-bottom-color: var(--teal); }
+  .amount-cur { font-size: 20px; font-weight: 700; color: var(--teal); }
+  .amount-hint {
+    text-align: center; font-size: 12px; color: var(--gray);
+    min-height: 17px; margin-bottom: 10px;
+  }
+
   /* Scrollbar */
   ::-webkit-scrollbar { width: 0; }
 
@@ -948,11 +1116,11 @@
         <div class="quick-btn-icon"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#028090" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v8M8 12h8"/></svg></div>
         <div class="quick-btn-label" data-i18n="t16">Invest</div>
       </button>
-      <button class="quick-btn" onclick="showToast('Coming Soon: Detailed Portfolio Page')">
+      <button class="quick-btn" onclick="showScreen('portfolio-screen')">
         <div class="quick-btn-icon"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#028090" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.2 15.9A10 10 0 1 1 8 2.8"/><path d="M22 12A10 10 0 0 0 12 2v10z"/></svg></div>
         <div class="quick-btn-label" data-i18n="t17">Portfolio</div>
       </button>
-      <button class="quick-btn" onclick="showToast('✅ All your investments are Halal per AAOIFI')">
+      <button class="quick-btn" onclick="showScreen('screening-screen')">
         <div class="quick-btn-icon"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#028090" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-5"/></svg></div>
         <div class="quick-btn-label" data-i18n="t18">Halal Check</div>
       </button>
@@ -1039,7 +1207,7 @@
       <span class="nav-icon"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#6B7280" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M9 13h6M9 17h6"/></svg></span>
       <span class="nav-label" data-i18n="t45">Reports</span>
     </button>
-    <button class="nav-item" onclick="showToast('Account Page - Coming Soon')">
+    <button class="nav-item" onclick="setNav(this, 'account-screen')">
       <span class="nav-icon"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#6B7280" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></span>
       <span class="nav-label" data-i18n="t46">Account</span>
     </button>
@@ -1139,7 +1307,7 @@
       <span class="nav-icon"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#6B7280" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M9 13h6M9 17h6"/></svg></span>
       <span class="nav-label" data-i18n="t75">Reports</span>
     </button>
-    <button class="nav-item" onclick="showToast('Account Page - Coming Soon')">
+    <button class="nav-item" onclick="setNav(this, 'account-screen')">
       <span class="nav-icon"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#6B7280" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></span>
       <span class="nav-label" data-i18n="t76">Account</span>
     </button>
@@ -1256,9 +1424,434 @@
       <span class="nav-icon"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#6B7280" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M9 13h6M9 17h6"/></svg></span>
       <span class="nav-label" data-i18n="t118">Reports</span>
     </button>
-    <button class="nav-item" onclick="showToast('Account Page - Coming Soon')">
+    <button class="nav-item" onclick="setNav(this, 'account-screen')">
       <span class="nav-icon"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#6B7280" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></span>
       <span class="nav-label" data-i18n="t119">Account</span>
+    </button>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════ ACCOUNT ═══════════════════════════════ -->
+<div class="screen" id="account-screen">
+  <div class="profile-head">
+    <div class="avatar-lg">K</div>
+    <div class="profile-name" data-i18n="acc_name">Kholoud Alkuwari</div>
+    <div class="profile-mail">kholoud@athmaar.qa</div>
+    <div class="profile-chip"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#028090" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-5"/></svg><span data-i18n="acc_verified">Verified Account</span></div>
+  </div>
+
+  <div class="account-body">
+    <div class="acct-stats">
+      <div class="acct-stat">
+        <div class="acct-stat-val" id="acc-months">14</div>
+        <div class="acct-stat-lbl" data-i18n="acc_months">Months Active</div>
+      </div>
+      <div class="acct-stat">
+        <div class="acct-stat-val" id="acc-assets">4</div>
+        <div class="acct-stat-lbl" data-i18n="acc_assets">Assets</div>
+      </div>
+      <div class="acct-stat">
+        <div class="acct-stat-val" id="acc-return">+7.8%</div>
+        <div class="acct-stat-lbl" data-i18n="acc_return">Annual Return</div>
+      </div>
+    </div>
+
+    <div class="demo-note" data-i18n="acc_demo">Demo version — all data shown is sample data for demonstration purposes.</div>
+
+    <div class="acct-group">
+      <div class="acct-group-title" data-i18n="acc_g1">INVESTMENT PROFILE</div>
+      <div class="acct-card">
+      <div class="acct-row">
+        <div class="acct-row-ic"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#028090" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.5" /></svg></div>
+        <div class="acct-row-txt">
+          <div class="acct-row-lbl" data-i18n="acc_goal">Investment Goal</div>
+        </div>
+        <span class="acct-row-val" data-i18n="acc_goal_v">Buy a Home</span>
+      </div>
+      <div class="acct-row">
+        <div class="acct-row-ic"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#028090" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-5"/></svg></div>
+        <div class="acct-row-txt">
+          <div class="acct-row-lbl" data-i18n="acc_risk">Risk Profile</div>
+        </div>
+        <span class="risk-pill" data-i18n="acc_risk_v">Balanced</span>
+      </div>
+      <div class="acct-row">
+        <div class="acct-row-ic"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#028090" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg></div>
+        <div class="acct-row-txt">
+          <div class="acct-row-lbl" data-i18n="acc_monthly">Monthly Investment</div>
+        </div>
+        <span class="acct-row-val" id="acc-monthly-val">QR 2,000</span>
+      </div>
+      </div>
+    </div>
+
+    <div class="acct-group">
+      <div class="acct-group-title" data-i18n="acc_g2">ACCOUNT &amp; PAYMENTS</div>
+      <div class="acct-card">
+      <div class="acct-row">
+        <div class="acct-row-ic"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#028090" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10l9-6 9 6"/><path d="M5 10v9M19 10v9M9 10v9M15 10v9"/><path d="M3 21h18"/></svg></div>
+        <div class="acct-row-txt">
+          <div class="acct-row-lbl" data-i18n="acc_bank">Linked Bank Account</div><div class="acct-row-sub" data-i18n="acc_bank_s">Auto-invest active</div>
+        </div>
+        <span class="acct-row-val">•••• 4471</span>
+      </div>
+      <div class="acct-row">
+        <div class="acct-row-ic"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#028090" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 15h2a2 2 0 1 0 0-4h-3c-.6 0-1.1.2-1.4.6L3 17"/><path d="M7 21l1.6-1.4c.3-.4.8-.6 1.4-.6h4c1.1 0 2.1-.4 2.8-1.2L21 14c-.8-.8-2-.8-2.8-.1L15.4 16"/><circle cx="16" cy="5" r="2.5"/></svg></div>
+        <div class="acct-row-txt">
+          <div class="acct-row-lbl" data-i18n="acc_purif">Purification History</div><div class="acct-row-sub" data-i18n="acc_purif_s">Donated to Qatar Charity</div>
+        </div>
+        <span class="acct-row-val" id="acc-purif-val">QR 86</span>
+      </div>
+      <div class="acct-row" onclick="showToast(t('toast_demo'))">
+        <div class="acct-row-ic"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#028090" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg></div>
+        <div class="acct-row-txt">
+          <div class="acct-row-lbl" data-i18n="acc_stmt">Statements</div>
+        </div>
+        <span class="acct-arrow">›</span>
+      </div>
+      </div>
+    </div>
+
+    <div class="acct-group">
+      <div class="acct-group-title" data-i18n="acc_g3">PREFERENCES</div>
+      <div class="acct-card">
+      <div class="acct-row" onclick="toggleLang()">
+        <div class="acct-row-ic"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#028090" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18a15 15 0 0 1 0-18z"/></svg></div>
+        <div class="acct-row-txt">
+          <div class="acct-row-lbl" data-i18n="acc_lang">Language</div>
+        </div>
+        <span class="acct-row-val" id="acc-lang-val">العربية</span>
+      </div>
+      <div class="acct-row" onclick="showToast(t('toast_demo'))">
+        <div class="acct-row-ic"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#028090" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8a6 6 0 1 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/></svg></div>
+        <div class="acct-row-txt">
+          <div class="acct-row-lbl" data-i18n="acc_notif">Notifications</div><div class="acct-row-sub" data-i18n="acc_notif_s">Daily summary at 8:00 AM</div>
+        </div>
+        <span class="acct-arrow">›</span>
+      </div>
+      <div class="acct-row" onclick="showToast(t('toast_demo'))">
+        <div class="acct-row-ic"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#028090" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg></div>
+        <div class="acct-row-txt">
+          <div class="acct-row-lbl" data-i18n="acc_sec">Security</div><div class="acct-row-sub" data-i18n="acc_sec_s">Biometric login enabled</div>
+        </div>
+        <span class="acct-arrow">›</span>
+      </div>
+      </div>
+    </div>
+
+    <div class="acct-group">
+      <div class="acct-group-title" data-i18n="acc_g4">SUPPORT</div>
+      <div class="acct-card">
+      <div class="acct-row" onclick="showToast(t('toast_demo'))">
+        <div class="acct-row-ic"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#028090" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M9.5 9a2.5 2.5 0 1 1 3.4 2.3c-.6.3-.9.8-.9 1.4v.4"/><circle cx="12" cy="17" r=".6" fill="#028090"/></svg></div>
+        <div class="acct-row-txt">
+          <div class="acct-row-lbl" data-i18n="acc_help">Help Center</div>
+        </div>
+        <span class="acct-arrow">›</span>
+      </div>
+      <div class="acct-row" onclick="showToast(t('toast_demo'))">
+        <div class="acct-row-ic"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#028090" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg></div>
+        <div class="acct-row-txt">
+          <div class="acct-row-lbl" data-i18n="acc_terms">Terms &amp; Privacy</div>
+        </div>
+        <span class="acct-arrow">›</span>
+      </div>
+      <div class="acct-row" onclick="showScreen('splash')">
+        <div class="acct-row-ic"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#EF4444" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><path d="M16 17l5-5-5-5M21 12H9"/></svg></div>
+        <div class="acct-row-txt">
+          <div class="acct-row-lbl" data-i18n="acc_logout">Log Out</div>
+        </div>
+        
+      </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="bottom-nav">
+    <button class="nav-item" onclick="setNav(this, 'dashboard')">
+      <span class="nav-icon"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#6B7280" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-8 9 8"/><path d="M5 10v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V10"/></svg></span>
+      <span class="nav-label" data-i18n="acc_nav_home">Home</span>
+    </button>
+    <button class="nav-item" onclick="setNav(this, 'trading-screen')">
+      <span class="nav-icon"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#6B7280" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 14l4-4 3 3 5-6"/></svg></span>
+      <span class="nav-label" data-i18n="acc_nav_market">Market</span>
+    </button>
+    <button class="nav-item" onclick="setNav(this, 'chat-screen')">
+      <span class="nav-ai-btn"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="#0D2137" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="8" width="16" height="12" rx="3"/><path d="M12 8V4M9 4h6"/><circle cx="9" cy="13.5" r="1" fill="#0D2137" stroke="none"/><circle cx="15" cy="13.5" r="1" fill="#0D2137" stroke="none"/><path d="M9.5 17h5"/></svg></span>
+    </button>
+    <button class="nav-item" onclick="setNav(this, 'report-screen')">
+      <span class="nav-icon"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#6B7280" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M9 13h6M9 17h6"/></svg></span>
+      <span class="nav-label" data-i18n="acc_nav_reports">Reports</span>
+    </button>
+    <button class="nav-item active" onclick="setNav(this, 'account-screen')">
+      <span class="nav-icon"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#6B7280" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></span>
+      <span class="nav-label" data-i18n="acc_nav_account">Account</span>
+    </button>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════ PORTFOLIO ═══════════════════════════════ -->
+<div class="screen" id="portfolio-screen">
+  <div class="pf-summary">
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px">
+      <button class="back-btn" onclick="goBack('dashboard')" style="color:#fff;font-size:20px">←</button>
+      <div>
+        <div class="header-title" data-i18n="pf_title">My Portfolio</div>
+        <div class="header-sub" data-i18n="pf_sub">Detailed breakdown of your investments</div>
+      </div>
+    </div>
+    <div class="pf-total-lbl" data-i18n="pf_total_lbl">Total Value</div>
+    <div class="pf-total" id="pf-total" data-val-ar="٥٢٬٣٤٠ ر.ق" data-val-en="QR 52,340">QR 52,340</div>
+    <div class="pf-delta" id="pf-delta" data-val-ar="▲ +١٬٦٢٣ ر.ق (+٣.٢٪) هذا الشهر" data-val-en="▲ +QR 1,623 (+3.2%) this month">▲ +QR 1,623 (+3.2%) this month</div>
+  </div>
+
+  <div class="pf-body">
+    <div class="section-header" style="margin-top:4px">
+      <div class="section-title" data-i18n="pf_alloc">Asset Allocation</div>
+    </div>
+    <div class="scr-card">
+      <div class="alloc-bar"><div class="alloc-seg" style="width:38%;background:#02C39A"></div><div class="alloc-seg" style="width:35%;background:#028090"></div><div class="alloc-seg" style="width:27%;background:#0D2137"></div></div>
+      <div class="alloc-legend">
+        <div class="alloc-item">
+          <div class="alloc-dot" style="background:#02C39A"></div>
+          <div class="alloc-name" data-i18n="pf_a1">Islamic Funds</div>
+          <div class="alloc-pct">38%</div>
+          <div class="alloc-val" data-val-ar="٢٠٬٠٠٠ ر.ق" data-val-en="QR 20,000">QR 20,000</div>
+        </div>        <div class="alloc-item">
+          <div class="alloc-dot" style="background:#028090"></div>
+          <div class="alloc-name" data-i18n="pf_a2">Global Equities</div>
+          <div class="alloc-pct">35%</div>
+          <div class="alloc-val" data-val-ar="١٨٬٢٠٠ ر.ق" data-val-en="QR 18,200">QR 18,200</div>
+        </div>        <div class="alloc-item">
+          <div class="alloc-dot" style="background:#0D2137"></div>
+          <div class="alloc-name" data-i18n="pf_a3">Government Sukuk</div>
+          <div class="alloc-pct">27%</div>
+          <div class="alloc-val" data-val-ar="١٤٬١٤٠ ر.ق" data-val-en="QR 14,140">QR 14,140</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="info-band">
+      <b data-i18n="pf_reb_t">Auto-Rebalancing</b><br>
+      <span data-i18n="pf_reb_d">Our AI monitors your allocation and rebalances automatically when it drifts more than 5% from target.</span>
+    </div>
+
+    <div class="section-header">
+      <div class="section-title" data-i18n="pf_hold">Holdings</div>
+    </div>
+      <div class="holding">
+        <div class="holding-top">
+          <div class="invest-avatar" style="background:#1a1a2e;width:38px;height:38px;font-size:14px">A</div>
+          <div class="holding-name" data-i18n="pf_h0">Apple Inc.</div>
+          <div class="holding-val" data-val-ar="١٨٬٢٠٠ ر.ق" data-val-en="QR 18,200">QR 18,200</div>
+        </div>
+        <div class="holding-meta">
+          <div class="holding-cell"><span data-i18n="pf_units0">Units</span>: <b data-val-ar="٩" data-val-en="9">9</b></div>
+          <div class="holding-cell"><span data-i18n="pf_cost0">Cost</span>: <b data-val-ar="١٦٬٨٠٠ ر.ق" data-val-en="QR 16,800">QR 16,800</b></div>
+          <div class="holding-cell"><span data-i18n="pf_gain0">Gain</span>: <b style="color:var(--green)" data-val-ar="+٢.١٪" data-val-en="+2.1%">+2.1%</b></div>
+          <div class="holding-cell"><span class="halal-tag" data-i18n="pf_hal0">✓ Halal</span></div>
+        </div>
+      </div>      <div class="holding">
+        <div class="holding-top">
+          <div class="invest-avatar" style="background:#006400;width:38px;height:38px;font-size:14px">Q</div>
+          <div class="holding-name" data-i18n="pf_h1">Qatar Growth Fund</div>
+          <div class="holding-val" data-val-ar="٢٠٬٠٠٠ ر.ق" data-val-en="QR 20,000">QR 20,000</div>
+        </div>
+        <div class="holding-meta">
+          <div class="holding-cell"><span data-i18n="pf_units1">Units</span>: <b data-val-ar="٨٠" data-val-en="80">80</b></div>
+          <div class="holding-cell"><span data-i18n="pf_cost1">Cost</span>: <b data-val-ar="١٨٬٥٠٠ ر.ق" data-val-en="QR 18,500">QR 18,500</b></div>
+          <div class="holding-cell"><span data-i18n="pf_gain1">Gain</span>: <b style="color:var(--green)" data-val-ar="+٤.٥٪" data-val-en="+4.5%">+4.5%</b></div>
+          <div class="holding-cell"><span class="halal-tag" data-i18n="pf_hal1">✓ Halal</span></div>
+        </div>
+      </div>      <div class="holding">
+        <div class="holding-top">
+          <div class="invest-avatar" style="background:#8B0000;width:38px;height:38px;font-size:14px">S</div>
+          <div class="holding-name" data-i18n="pf_h2">Qatar Government Sukuk</div>
+          <div class="holding-val" data-val-ar="١٤٬١٤٠ ر.ق" data-val-en="QR 14,140">QR 14,140</div>
+        </div>
+        <div class="holding-meta">
+          <div class="holding-cell"><span data-i18n="pf_units2">Units</span>: <b data-val-ar="١٤" data-val-en="14">14</b></div>
+          <div class="holding-cell"><span data-i18n="pf_cost2">Cost</span>: <b data-val-ar="١٣٬٩٠٠ ر.ق" data-val-en="QR 13,900">QR 13,900</b></div>
+          <div class="holding-cell"><span data-i18n="pf_gain2">Gain</span>: <b style="color:var(--green)" data-val-ar="+١.٢٪" data-val-en="+1.2%">+1.2%</b></div>
+          <div class="holding-cell"><span class="halal-tag" data-i18n="pf_hal2">✓ Halal</span></div>
+        </div>
+      </div>
+  </div>
+
+  <div class="bottom-nav">
+    <button class="nav-item" onclick="setNav(this, 'dashboard')">
+      <span class="nav-icon"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#6B7280" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-8 9 8"/><path d="M5 10v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V10"/></svg></span>
+      <span class="nav-label" data-i18n="nv_home_portfolio-screen">Home</span>
+    </button>
+    <button class="nav-item" onclick="setNav(this, 'trading-screen')">
+      <span class="nav-icon"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#6B7280" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 14l4-4 3 3 5-6"/></svg></span>
+      <span class="nav-label" data-i18n="nv_mkt_portfolio-screen">Market</span>
+    </button>
+    <button class="nav-item" onclick="setNav(this, 'chat-screen')">
+      <span class="nav-ai-btn"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="#0D2137" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="8" width="16" height="12" rx="3"/><path d="M12 8V4M9 4h6"/><circle cx="9" cy="13.5" r="1" fill="#0D2137" stroke="none"/><circle cx="15" cy="13.5" r="1" fill="#0D2137" stroke="none"/><path d="M9.5 17h5"/></svg></span>
+    </button>
+    <button class="nav-item" onclick="setNav(this, 'report-screen')">
+      <span class="nav-icon"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#6B7280" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M9 13h6M9 17h6"/></svg></span>
+      <span class="nav-label" data-i18n="nv_rep_portfolio-screen">Reports</span>
+    </button>
+    <button class="nav-item" onclick="setNav(this, 'account-screen')">
+      <span class="nav-icon"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#6B7280" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></span>
+      <span class="nav-label" data-i18n="nv_acc_portfolio-screen">Account</span>
+    </button>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════ SHARIAH SCREENING ═══════════════════════════════ -->
+<div class="screen" id="screening-screen">
+  <div class="screen-header">
+    <button class="back-btn" onclick="goBack('dashboard')" style="color:#fff;font-size:20px">←</button>
+    <div>
+      <div class="header-title" data-i18n="scr_title">Shariah Screening</div>
+      <div class="header-sub" data-i18n="scr_sub">AAOIFI standards · Updated quarterly</div>
+    </div>
+  </div>
+
+  <div class="pf-body">
+    <div class="scr-card" style="background:linear-gradient(135deg,#e6faf5,#f0fffc);border:1px solid rgba(2,195,154,.3)">
+      <div style="display:flex;align-items:center;gap:12px">
+        <div style="font-size:26px"><svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="#02C39A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-6"/></svg></div>
+        <div>
+          <div style="font-size:16px;font-weight:800;color:var(--navy)" data-i18n="scr_all">All Holdings Compliant</div>
+          <div style="font-size:12px;color:var(--gray)" data-i18n="scr_all_s">Last screened today · 3 of 3 assets passed</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="info-band">
+      <b data-i18n="scr_how">How screening works</b><br>
+      <span data-i18n="scr_how_d">Every asset passes two stages: business activity screening (no alcohol, gambling, conventional banking), then financial ratio tests based on AAOIFI thresholds.</span>
+    </div>
+
+    <div class="section-header">
+      <div class="section-title" data-i18n="scr_detail">Screening Details</div>
+    </div>
+      <div class="scr-card">
+        <div class="scr-head">
+          <div class="invest-avatar" style="background:#1a1a2e;width:38px;height:38px;font-size:14px">A</div>
+          <div>
+            <div class="scr-name" data-i18n="scr_n0">Apple Inc.</div>
+            <div class="acct-row-sub" data-i18n="scr_ty0">Technology</div>
+          </div>
+          <div style="margin-inline-start:auto"><span class="scr-pass"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="#028090" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-6"/></svg><span data-i18n="scr_p0">Compliant</span></span></div>
+        </div>
+        <div class="scr-test">
+          <div class="scr-test-row">
+            <div class="scr-test-lbl" data-i18n="scr_t1">Debt / Market Cap</div>
+            <div class="scr-test-val" data-val-ar="٢٤.٨٪" data-val-en="24.8%">24.8%</div>
+            <div class="scr-test-max" data-val-ar="< ٣٠٪" data-val-en="< 30%">< 30%</div>
+          </div>
+          <div class="scr-meter"><div class="scr-meter-fill" style="width:83%"></div></div>
+        </div>        <div class="scr-test">
+          <div class="scr-test-row">
+            <div class="scr-test-lbl" data-i18n="scr_t2">Interest Income</div>
+            <div class="scr-test-val" data-val-ar="١.٢٪" data-val-en="1.2%">1.2%</div>
+            <div class="scr-test-max" data-val-ar="< ٥٪" data-val-en="< 5%">< 5%</div>
+          </div>
+          <div class="scr-meter"><div class="scr-meter-fill" style="width:24%"></div></div>
+        </div>        <div class="scr-test">
+          <div class="scr-test-row">
+            <div class="scr-test-lbl" data-i18n="scr_t3">Liquid Assets</div>
+            <div class="scr-test-val" data-val-ar="١٨.٤٪" data-val-en="18.4%">18.4%</div>
+            <div class="scr-test-max" data-val-ar="< ٣٠٪" data-val-en="< 30%">< 30%</div>
+          </div>
+          <div class="scr-meter"><div class="scr-meter-fill" style="width:61%"></div></div>
+        </div>
+      </div>      <div class="scr-card">
+        <div class="scr-head">
+          <div class="invest-avatar" style="background:#006400;width:38px;height:38px;font-size:14px">Q</div>
+          <div>
+            <div class="scr-name" data-i18n="scr_n1">Qatar Growth Fund</div>
+            <div class="acct-row-sub" data-i18n="scr_ty1">Islamic Fund</div>
+          </div>
+          <div style="margin-inline-start:auto"><span class="scr-pass"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="#028090" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-6"/></svg><span data-i18n="scr_p1">Compliant</span></span></div>
+        </div>
+        <div class="scr-test">
+          <div class="scr-test-row">
+            <div class="scr-test-lbl" data-i18n="scr_t4">Debt / Market Cap</div>
+            <div class="scr-test-val" data-val-ar="١٢.١٪" data-val-en="12.1%">12.1%</div>
+            <div class="scr-test-max" data-val-ar="< ٣٠٪" data-val-en="< 30%">< 30%</div>
+          </div>
+          <div class="scr-meter"><div class="scr-meter-fill" style="width:40%"></div></div>
+        </div>        <div class="scr-test">
+          <div class="scr-test-row">
+            <div class="scr-test-lbl" data-i18n="scr_t5">Interest Income</div>
+            <div class="scr-test-val" data-val-ar="٠.٠٪" data-val-en="0.0%">0.0%</div>
+            <div class="scr-test-max" data-val-ar="< ٥٪" data-val-en="< 5%">< 5%</div>
+          </div>
+          <div class="scr-meter"><div class="scr-meter-fill" style="width:0%"></div></div>
+        </div>        <div class="scr-test">
+          <div class="scr-test-row">
+            <div class="scr-test-lbl" data-i18n="scr_t6">Liquid Assets</div>
+            <div class="scr-test-val" data-val-ar="٩.٧٪" data-val-en="9.7%">9.7%</div>
+            <div class="scr-test-max" data-val-ar="< ٣٠٪" data-val-en="< 30%">< 30%</div>
+          </div>
+          <div class="scr-meter"><div class="scr-meter-fill" style="width:32%"></div></div>
+        </div>
+      </div>      <div class="scr-card">
+        <div class="scr-head">
+          <div class="invest-avatar" style="background:#8B0000;width:38px;height:38px;font-size:14px">S</div>
+          <div>
+            <div class="scr-name" data-i18n="scr_n2">Qatar Government Sukuk</div>
+            <div class="acct-row-sub" data-i18n="scr_ty2">Sukuk</div>
+          </div>
+          <div style="margin-inline-start:auto"><span class="scr-pass"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="#028090" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-6"/></svg><span data-i18n="scr_p2">Compliant</span></span></div>
+        </div>
+        <div class="scr-test">
+          <div class="scr-test-row">
+            <div class="scr-test-lbl" data-i18n="scr_t7">Structure</div>
+            <div class="scr-test-val" data-val-ar="إجارة" data-val-en="Ijara">Ijara</div>
+            <div class="scr-test-max" data-val-ar="مدعوم بأصل" data-val-en="Asset-backed">Asset-backed</div>
+          </div>
+          <div class="scr-meter"><div class="scr-meter-fill" style="width:100%"></div></div>
+        </div>        <div class="scr-test">
+          <div class="scr-test-row">
+            <div class="scr-test-lbl" data-i18n="scr_t8">Interest Income</div>
+            <div class="scr-test-val" data-val-ar="٠.٠٪" data-val-en="0.0%">0.0%</div>
+            <div class="scr-test-max" data-val-ar="< ٥٪" data-val-en="< 5%">< 5%</div>
+          </div>
+          <div class="scr-meter"><div class="scr-meter-fill" style="width:0%"></div></div>
+        </div>        <div class="scr-test">
+          <div class="scr-test-row">
+            <div class="scr-test-lbl" data-i18n="scr_t9">SSB Approval</div>
+            <div class="scr-test-val" data-val-ar="معتمد" data-val-en="Approved">Approved</div>
+            <div class="scr-test-max" data-val-ar="مطلوب" data-val-en="Required">Required</div>
+          </div>
+          <div class="scr-meter"><div class="scr-meter-fill" style="width:100%"></div></div>
+        </div>
+      </div>
+
+    <div class="info-band" style="margin-top:4px">
+      <b data-i18n="scr_note">Quarterly updates</b><br>
+      <span data-i18n="scr_note_d">Company financials change every quarter. If any holding stops meeting the thresholds, you will be notified immediately.</span>
+    </div>
+  </div>
+
+  <div class="bottom-nav">
+    <button class="nav-item" onclick="setNav(this, 'dashboard')">
+      <span class="nav-icon"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#6B7280" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-8 9 8"/><path d="M5 10v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V10"/></svg></span>
+      <span class="nav-label" data-i18n="nv_home_screening-screen">Home</span>
+    </button>
+    <button class="nav-item" onclick="setNav(this, 'trading-screen')">
+      <span class="nav-icon"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#6B7280" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 14l4-4 3 3 5-6"/></svg></span>
+      <span class="nav-label" data-i18n="nv_mkt_screening-screen">Market</span>
+    </button>
+    <button class="nav-item" onclick="setNav(this, 'chat-screen')">
+      <span class="nav-ai-btn"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="#0D2137" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="8" width="16" height="12" rx="3"/><path d="M12 8V4M9 4h6"/><circle cx="9" cy="13.5" r="1" fill="#0D2137" stroke="none"/><circle cx="15" cy="13.5" r="1" fill="#0D2137" stroke="none"/><path d="M9.5 17h5"/></svg></span>
+    </button>
+    <button class="nav-item" onclick="setNav(this, 'report-screen')">
+      <span class="nav-icon"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#6B7280" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M9 13h6M9 17h6"/></svg></span>
+      <span class="nav-label" data-i18n="nv_rep_screening-screen">Reports</span>
+    </button>
+    <button class="nav-item" onclick="setNav(this, 'account-screen')">
+      <span class="nav-icon"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#6B7280" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></span>
+      <span class="nav-label" data-i18n="nv_acc_screening-screen">Account</span>
     </button>
   </div>
 </div>
@@ -1344,8 +1937,8 @@
 <script>
 
 // ══════════════════ i18n SYSTEM ══════════════════
-const I18N = {"t0": {"en": "Invest Smart. Invest with Confidence.", "ar": "استثمر بذكاء، استثمر بثقة"}, "t1": {"en": "100% Shariah-Compliant, AI-Powered", "ar": "مع مراعاة كاملة لأحكام الشريعة"}, "t2": {"en": "✦ 100% Halal", "ar": "✦ شرعي 100%"}, "t3": {"en": "✦ AI-Powered", "ar": "✦ ذكاء اصطناعي"}, "t4": {"en": "Start Your Investment Journey", "ar": "ابدأ رحلتك الاستثمارية"}, "t5": {"en": "I already have an account", "ar": "لدي حساب بالفعل"}, "t6": {"en": "Step 1 of 5", "ar": "الخطوة 1 من 5"}, "t7": {"en": "What is your main investment goal?", "ar": "ما هو هدفك الاستثماري الرئيسي؟"}, "t8": {"en": "Welcome back,", "ar": "مرحباً بعودتك،"}, "t9": {"en": "Kholoud 👋", "ar": "خلود 👋"}, "t10": {"en": "Total Portfolio", "ar": "إجمالي المحفظة"}, "t11": {"en": "QR 52,340", "ar": "٥٢٬٣٤٠ ر.ق"}, "t12": {"en": "▲ +3.2% This Month", "ar": "▲ +٣.٢٪ هذا الشهر"}, "t13": {"en": "Profit +QR 1,623", "ar": "الأرباح +١٬٦٢٣ ر.ق"}, "t14": {"en": "4 Assets", "ar": "٤ أصول"}, "t15": {"en": "🌙 Shariah-Certified Portfolio · AAOIFI", "ar": "🌙 محفظة معتمدة شرعياً · AAOIFI"}, "t16": {"en": "Invest", "ar": "استثمر"}, "t17": {"en": "Portfolio", "ar": "محفظتي"}, "t18": {"en": "Halal Check", "ar": "فحص شرعي"}, "t19": {"en": "Purification", "ar": "التطهير"}, "t20": {"en": "Today's Report", "ar": "تقرير اليوم"}, "t21": {"en": "Full Report", "ar": "التقرير الكامل"}, "t22": {"en": "Market Summary - Today", "ar": "ملخص الأسواق - اليوم"}, "t23": {"en": "1 hour ago", "ar": "منذ ١ س"}, "t24": {"en": "Your Apple shares rose 2.1% today 🎉 · Gold at its highest this month · Your portfolio outperforms the market by 1.4%", "ar": "أسهمك في Apple ارتفعت ٢.١٪ اليوم 🎉 · الذهب عند أعلى مستوى هذا الشهر · محفظتك في أداء أفضل من السوق بنسبة ١.٤٪"}, "t25": {"en": "Your Investments", "ar": "استثماراتك"}, "t26": {"en": "View All", "ar": "عرض الكل"}, "t27": {"en": "US Stocks ·", "ar": "أسهم أمريكية ·"}, "t28": {"en": "✓ Halal", "ar": "✓ حلال"}, "t29": {"en": "QR 18,200", "ar": "١٨٬٢٠٠ ر.ق"}, "t30": {"en": "▲ +2.1%", "ar": "▲ +٢.١٪"}, "t31": {"en": "Q", "ar": "ص"}, "t32": {"en": "Qatar Growth Fund", "ar": "صندوق قطر للنمو"}, "t33": {"en": "Islamic Funds ·", "ar": "صناديق إسلامية ·"}, "t34": {"en": "✓ Halal", "ar": "✓ حلال"}, "t35": {"en": "QR 20,000", "ar": "٢٠٬٠٠٠ ر.ق"}, "t36": {"en": "▲ +4.5%", "ar": "▲ +٤.٥٪"}, "t37": {"en": "S", "ar": "س"}, "t38": {"en": "Qatar Government Sukuk", "ar": "صكوك حكومية قطرية"}, "t39": {"en": "Sukuk ·", "ar": "صكوك ·"}, "t40": {"en": "✓ Halal", "ar": "✓ حلال"}, "t41": {"en": "QR 14,140", "ar": "١٤٬١٤٠ ر.ق"}, "t42": {"en": "▲ +1.2%", "ar": "▲ +١.٢٪"}, "t43": {"en": "Home", "ar": "الرئيسية"}, "t44": {"en": "Market", "ar": "السوق"}, "t45": {"en": "Reports", "ar": "التقارير"}, "t46": {"en": "Account", "ar": "حسابي"}, "t47": {"en": "AI Advisor", "ar": "مستشارك الذكي"}, "t48": {"en": "AI-Powered · 100% Shariah-Compliant", "ar": "مدعوم بالذكاء الاصطناعي · شرعي ١٠٠٪"}, "t49": {"en": "Hello Kholoud! 👋", "ar": "مرحباً خلود! 👋"}, "t50": {"en": "I'm your AI Financial Advisor at Athmaar. I can help you with:", "ar": "أنا مستشارك المالي الذكي في إثمار. أقدر أساعدك في:"}, "t51": {"en": "• Understanding your investments and performance", "ar": "• فهم استثماراتك وأدائها"}, "t52": {"en": "• Explaining any financial concept simply", "ar": "• شرح أي مفهوم مالي بالعربي"}, "t53": {"en": "• Personalized investment recommendations", "ar": "• توصيات مبنية على ملفك الاستثماري"}, "t54": {"en": "• Verifying Shariah compliance", "ar": "• التحقق من التوافق الشرعي"}, "t55": {"en": "How can I help you today? 😊", "ar": "شنو يخدمك اليوم؟ 😊"}, "t56": {"en": "Portfolio Performance", "ar": "أداء المحفظة"}, "t57": {"en": "Shariah Screening", "ar": "الفحص الشرعي"}, "t58": {"en": "What is Sukuk?", "ar": "شرح الصكوك"}, "t59": {"en": "This Month's Recommendation", "ar": "توصية الشهر"}, "t60": {"en": "Purification", "ar": "التطهير"}, "t61": {"en": "Investment Simulator", "ar": "محاكاة الاستثمار"}, "t62": {"en": "Practice safely with virtual funds", "ar": "تدرب بأمان بدون فلوس حقيقية"}, "t63": {"en": "Simulator", "ar": "تدريبي"}, "t64": {"en": "Your Virtual Balance", "ar": "رصيدك التدريبي"}, "t65": {"en": "QR 100,000", "ar": "١٠٠٬٠٠٠ ر.ق"}, "t66": {"en": "Profit / Loss", "ar": "الأرباح/الخسائر"}, "t67": {"en": "+QR 0", "ar": "+٠ ر.ق"}, "t68": {"en": "All", "ar": "الكل"}, "t69": {"en": "Stocks", "ar": "أسهم"}, "t70": {"en": "Sukuk", "ar": "صكوك"}, "t71": {"en": "Gold", "ar": "ذهب"}, "t72": {"en": "Funds", "ar": "صناديق"}, "t73": {"en": "Home", "ar": "الرئيسية"}, "t74": {"en": "Market", "ar": "السوق"}, "t75": {"en": "Reports", "ar": "التقارير"}, "t76": {"en": "Account", "ar": "حسابي"}, "t77": {"en": "Reports &amp; Alerts", "ar": "التقارير والتنبيهات"}, "t78": {"en": "Last updated: Today, 9:41 AM", "ar": "آخر تحديث: اليوم، ٩:٤١ ص"}, "t79": {"en": "Today's Summary", "ar": "ملخص اليوم"}, "t80": {"en": "▲ +0.8%", "ar": "▲ +٠.٨٪"}, "t81": {"en": "Qatar Stock Market", "ar": "سوق الأسهم القطري"}, "t82": {"en": "▲ +0.3%", "ar": "▲ +٠.٣٪"}, "t83": {"en": "Gold (oz)", "ar": "الذهب (أوقية)"}, "t84": {"en": "▲ +1.2%", "ar": "▲ +١.٢٪"}, "t85": {"en": "Government Sukuk", "ar": "الصكوك الحكومية"}, "t86": {"en": "◆ Stable", "ar": "◆ ثابتة"}, "t87": {"en": "Your Portfolio Performance", "ar": "أداء محفظتك"}, "t88": {"en": "Total Value", "ar": "إجمالي القيمة"}, "t89": {"en": "QR 52,340", "ar": "٥٢٬٣٤٠ ر.ق"}, "t90": {"en": "This Month Profit", "ar": "الأرباح هذا الشهر"}, "t91": {"en": "+QR 1,623", "ar": "+١٬٦٢٣ ر.ق"}, "t92": {"en": "Expected Annual Return", "ar": "العائد السنوي المتوقع"}, "t93": {"en": "7.8%", "ar": "٧.٨٪"}, "t94": {"en": "Due Purification", "ar": "التطهير المستحق"}, "t95": {"en": "QR 12", "ar": "١٢ ر.ق"}, "t96": {"en": "AI Recommendation", "ar": "توصية الذكاء الاصطناعي"}, "t97": {"en": "Your portfolio is performing excellently this month! 🎉", "ar": "محفظتك في أداء ممتاز هذا الشهر! 🎉"}, "t98": {"en": "My Recommendation:", "ar": "توصيتي لك:"}, "t99": {"en": "Gold is rallying strongly — it may be a good time to add 5-10% of your portfolio in Shariah-compliant commodities.", "ar": "الذهب يشهد ارتفاعاً قوياً — قد يكون وقتاً مناسباً لإضافة ٥-١٠٪ من محفظتك في سلع مقيّمة شرعياً."}, "t100": {"en": "Alert:", "ar": "تحذير:"}, "t101": {"en": "Apple is approaching rebalancing point (35% of portfolio) — I will notify you if it exceeds 40%.", "ar": "سهم Apple قريب من نقطة إعادة التوازن (٣٥٪ من المحفظة) — سأرسل لك تنبيهاً إذا تجاوز ٤٠٪."}, "t102": {"en": "Talk to AI Advisor", "ar": "تحدث مع المستشار الذكي"}, "t103": {"en": "Weekly Report", "ar": "تقرير الأسبوع"}, "t104": {"en": "Top Performer", "ar": "أفضل أداء"}, "t105": {"en": "Qatar Fund", "ar": "صندوق قطر"}, "t106": {"en": "▲ +4.5%", "ar": "▲ +٤.٥٪"}, "t107": {"en": "Portfolio Size", "ar": "حجم التداول"}, "t108": {"en": "QR 52,340", "ar": "٥٢٬٣٤٠ ر.ق"}, "t109": {"en": "Total Portfolio", "ar": "إجمالي المحفظة"}, "t110": {"en": "Purification This Month", "ar": "التطهير هذا الشهر"}, "t111": {"en": "QR 12", "ar": "١٢ ر.ق"}, "t112": {"en": "Suggested Donation", "ar": "تبرع مقترح"}, "t113": {"en": "Goal Progress", "ar": "تقدم الهدف"}, "t114": {"en": "26%", "ar": "٢٦٪"}, "t115": {"en": "of Annual Goal", "ar": "من هدف السنة"}, "t116": {"en": "Home", "ar": "الرئيسية"}, "t117": {"en": "Market", "ar": "السوق"}, "t118": {"en": "Reports", "ar": "التقارير"}, "t119": {"en": "Account", "ar": "حسابي"}, "t120": {"en": "Buy Apple Inc.", "ar": "شراء Apple Inc."}, "t121": {"en": "Number of Shares", "ar": "عدد الأسهم"}, "t122": {"en": "Share Price", "ar": "سعر السهم"}, "t123": {"en": "QR 682", "ar": "٦٨٢ ر.ق"}, "t124": {"en": "Total", "ar": "الإجمالي"}, "t125": {"en": "QR 682", "ar": "٦٨٢ ر.ق"}, "t126": {"en": "Available Balance", "ar": "الرصيد المتاح"}, "t127": {"en": "QR 100,000", "ar": "١٠٠٬٠٠٠ ر.ق"}, "t128": {"en": "Shariah Status", "ar": "حالة الشريعة"}, "t129": {"en": "✅ Halal", "ar": "✅ حلال"}, "t130": {"en": "Confirm Purchase", "ar": "تأكيد الشراء"}, "t131": {"en": "Cancel", "ar": "إلغاء"}, "t132": {"en": "Shariah Purification", "ar": "التطهير الشرعي"}, "t133": {"en": "Total Portfolio", "ar": "محفظتك الإجمالية"}, "t134": {"en": "QR 52,340", "ar": "٥٢٬٣٤٠ ر.ق"}, "t135": {"en": "Purification Rate (AAOIFI)", "ar": "نسبة التطهير (AAOIFI)"}, "t136": {"en": "0.023%", "ar": "٠.٠٢٣٪"}, "t137": {"en": "Amount to Purify", "ar": "المبلغ الواجب تطهيره"}, "t138": {"en": "QR 12", "ar": "١٢ ر.ق"}, "t139": {"en": "💡 Purification is automatically calculated based on AAOIFI standards. The amount is donated to approved Qatari charities.", "ar": "💡 يُحسب التطهير تلقائياً بناءً على معايير AAOIFI للدخل غير المتوافق في محفظتك. المبلغ يُتبرع به لجمعيات خيرية قطرية معتمدة."}, "t140": {"en": "Donate Now to Qatar Charity (QR 12)", "ar": "تبرع الآن لقطر الخير (١٢ ر.ق)"}, "t141": {"en": "Later", "ar": "لاحقاً"}};
-const UI = {"toast_portfolio": {"ar": "قريباً: صفحة المحفظة التفصيلية", "en": "Coming Soon: Detailed Portfolio Page"}, "toast_halal": {"ar": "✅ كل استثماراتك حلال بموجب AAOIFI", "en": "✅ All your investments are Halal per AAOIFI"}, "toast_account": {"ar": "صفحة الحساب - قريباً", "en": "Account Page - Coming Soon"}, "toast_donated": {"ar": "✅ تم التبرع بـ ١٢ ر.ق لقطر الخير", "en": "✅ QR 12 donated to Qatar Charity"}, "toast_created": {"ar": "🎉 تم إنشاء محفظتك الشخصية بنجاح!", "en": "🎉 Your personal portfolio has been created!"}, "toast_nobalance": {"ar": "❌ رصيد غير كافٍ", "en": "❌ Insufficient balance"}, "toast_noholding": {"ar": "❌ لا تملك كافية من هذا الأصل", "en": "❌ Insufficient holdings for this asset"}, "buy_confirm": {"ar": "تأكيد الشراء ✓", "en": "Confirm Buy ✓"}, "sell_confirm": {"ar": "تأكيد البيع ✓", "en": "Confirm Sell ✓"}, "buy_prefix": {"ar": "شراء ", "en": "Buy "}, "sell_prefix": {"ar": "بيع ", "en": "Sell "}, "buy_btn": {"ar": "شراء +", "en": "Buy +"}, "sell_btn": {"ar": "بيع −", "en": "Sell −"}, "halal_tag": {"ar": "✓ حلال", "en": "✓ Halal"}, "next_btn": {"ar": "التالي ←", "en": "Next →"}, "per_month": {"ar": "شهرياً", "en": "per month"}, "input_ph": {"ar": "اكتب سؤالك هنا...", "en": "Type your question here..."}, "bought": {"ar": "✅ تم شراء", "en": "✅ Bought"}, "sold": {"ar": "✅ تم بيع", "en": "✅ Sold"}, "of": {"ar": "من", "en": "of"}, "monthly_label": {"ar": "ر.ق / شهرياً", "en": "QR / month"}};
+const I18N = {"t0": {"en": "Invest Smart. Invest with Confidence.", "ar": "استثمر بذكاء، استثمر بثقة"}, "t1": {"en": "100% Shariah-Compliant, AI-Powered", "ar": "مع مراعاة كاملة لأحكام الشريعة"}, "t2": {"en": "✦ 100% Halal", "ar": "✦ شرعي 100%"}, "t3": {"en": "✦ AI-Powered", "ar": "✦ ذكاء اصطناعي"}, "t4": {"en": "Start Your Investment Journey", "ar": "ابدأ رحلتك الاستثمارية"}, "t5": {"en": "I already have an account", "ar": "لدي حساب بالفعل"}, "t6": {"en": "Step 1 of 5", "ar": "الخطوة 1 من 5"}, "t7": {"en": "What is your main investment goal?", "ar": "ما هو هدفك الاستثماري الرئيسي؟"}, "t8": {"en": "Welcome back,", "ar": "مرحباً بعودتك،"}, "t9": {"en": "Kholoud 👋", "ar": "خلود 👋"}, "t10": {"en": "Total Portfolio", "ar": "إجمالي المحفظة"}, "t11": {"en": "QR 52,340", "ar": "٥٢٬٣٤٠ ر.ق"}, "t12": {"en": "▲ +3.2% This Month", "ar": "▲ +٣.٢٪ هذا الشهر"}, "t13": {"en": "Profit +QR 1,623", "ar": "الأرباح +١٬٦٢٣ ر.ق"}, "t14": {"en": "4 Assets", "ar": "٤ أصول"}, "t15": {"en": "🌙 Shariah-Certified Portfolio · AAOIFI", "ar": "🌙 محفظة معتمدة شرعياً · AAOIFI"}, "t16": {"en": "Invest", "ar": "استثمر"}, "t17": {"en": "Portfolio", "ar": "محفظتي"}, "t18": {"en": "Halal Check", "ar": "فحص شرعي"}, "t19": {"en": "Purification", "ar": "التطهير"}, "t20": {"en": "Today's Report", "ar": "تقرير اليوم"}, "t21": {"en": "Full Report", "ar": "التقرير الكامل"}, "t22": {"en": "Market Summary - Today", "ar": "ملخص الأسواق - اليوم"}, "t23": {"en": "1 hour ago", "ar": "منذ ١ س"}, "t24": {"en": "Your Apple shares rose 2.1% today 🎉 · Gold at its highest this month · Your portfolio outperforms the market by 1.4%", "ar": "أسهمك في Apple ارتفعت ٢.١٪ اليوم 🎉 · الذهب عند أعلى مستوى هذا الشهر · محفظتك في أداء أفضل من السوق بنسبة ١.٤٪"}, "t25": {"en": "Your Investments", "ar": "استثماراتك"}, "t26": {"en": "View All", "ar": "عرض الكل"}, "t27": {"en": "US Stocks ·", "ar": "أسهم أمريكية ·"}, "t28": {"en": "✓ Halal", "ar": "✓ حلال"}, "t29": {"en": "QR 18,200", "ar": "١٨٬٢٠٠ ر.ق"}, "t30": {"en": "▲ +2.1%", "ar": "▲ +٢.١٪"}, "t31": {"en": "Q", "ar": "ص"}, "t32": {"en": "Qatar Growth Fund", "ar": "صندوق قطر للنمو"}, "t33": {"en": "Islamic Funds ·", "ar": "صناديق إسلامية ·"}, "t34": {"en": "✓ Halal", "ar": "✓ حلال"}, "t35": {"en": "QR 20,000", "ar": "٢٠٬٠٠٠ ر.ق"}, "t36": {"en": "▲ +4.5%", "ar": "▲ +٤.٥٪"}, "t37": {"en": "S", "ar": "س"}, "t38": {"en": "Qatar Government Sukuk", "ar": "صكوك حكومية قطرية"}, "t39": {"en": "Sukuk ·", "ar": "صكوك ·"}, "t40": {"en": "✓ Halal", "ar": "✓ حلال"}, "t41": {"en": "QR 14,140", "ar": "١٤٬١٤٠ ر.ق"}, "t42": {"en": "▲ +1.2%", "ar": "▲ +١.٢٪"}, "t43": {"en": "Home", "ar": "الرئيسية"}, "t44": {"en": "Market", "ar": "السوق"}, "t45": {"en": "Reports", "ar": "التقارير"}, "t46": {"en": "Account", "ar": "حسابي"}, "t47": {"en": "AI Advisor", "ar": "مستشارك الذكي"}, "t48": {"en": "AI-Powered · 100% Shariah-Compliant", "ar": "مدعوم بالذكاء الاصطناعي · شرعي ١٠٠٪"}, "t49": {"en": "Hello Kholoud! 👋", "ar": "مرحباً خلود! 👋"}, "t50": {"en": "I'm your AI Financial Advisor at Athmaar. I can help you with:", "ar": "أنا مستشارك المالي الذكي في إثمار. أقدر أساعدك في:"}, "t51": {"en": "• Understanding your investments and performance", "ar": "• فهم استثماراتك وأدائها"}, "t52": {"en": "• Explaining any financial concept simply", "ar": "• شرح أي مفهوم مالي بالعربي"}, "t53": {"en": "• Personalized investment recommendations", "ar": "• توصيات مبنية على ملفك الاستثماري"}, "t54": {"en": "• Verifying Shariah compliance", "ar": "• التحقق من التوافق الشرعي"}, "t55": {"en": "How can I help you today? 😊", "ar": "شنو يخدمك اليوم؟ 😊"}, "t56": {"en": "Portfolio Performance", "ar": "أداء المحفظة"}, "t57": {"en": "Shariah Screening", "ar": "الفحص الشرعي"}, "t58": {"en": "What is Sukuk?", "ar": "شرح الصكوك"}, "t59": {"en": "This Month's Recommendation", "ar": "توصية الشهر"}, "t60": {"en": "Purification", "ar": "التطهير"}, "t61": {"en": "Investment Simulator", "ar": "محاكاة الاستثمار"}, "t62": {"en": "Practice safely with virtual funds", "ar": "تدرب بأمان بدون فلوس حقيقية"}, "t63": {"en": "Simulator", "ar": "تدريبي"}, "t64": {"en": "Your Virtual Balance", "ar": "رصيدك التدريبي"}, "t65": {"en": "QR 100,000", "ar": "١٠٠٬٠٠٠ ر.ق"}, "t66": {"en": "Profit / Loss", "ar": "الأرباح/الخسائر"}, "t67": {"en": "+QR 0", "ar": "+٠ ر.ق"}, "t68": {"en": "All", "ar": "الكل"}, "t69": {"en": "Stocks", "ar": "أسهم"}, "t70": {"en": "Sukuk", "ar": "صكوك"}, "t71": {"en": "Gold", "ar": "ذهب"}, "t72": {"en": "Funds", "ar": "صناديق"}, "t73": {"en": "Home", "ar": "الرئيسية"}, "t74": {"en": "Market", "ar": "السوق"}, "t75": {"en": "Reports", "ar": "التقارير"}, "t76": {"en": "Account", "ar": "حسابي"}, "t77": {"en": "Reports &amp; Alerts", "ar": "التقارير والتنبيهات"}, "t78": {"en": "Last updated: Today, 9:41 AM", "ar": "آخر تحديث: اليوم، ٩:٤١ ص"}, "t79": {"en": "Today's Summary", "ar": "ملخص اليوم"}, "t80": {"en": "▲ +0.8%", "ar": "▲ +٠.٨٪"}, "t81": {"en": "Qatar Stock Market", "ar": "سوق الأسهم القطري"}, "t82": {"en": "▲ +0.3%", "ar": "▲ +٠.٣٪"}, "t83": {"en": "Gold (oz)", "ar": "الذهب (أوقية)"}, "t84": {"en": "▲ +1.2%", "ar": "▲ +١.٢٪"}, "t85": {"en": "Government Sukuk", "ar": "الصكوك الحكومية"}, "t86": {"en": "◆ Stable", "ar": "◆ ثابتة"}, "t87": {"en": "Your Portfolio Performance", "ar": "أداء محفظتك"}, "t88": {"en": "Total Value", "ar": "إجمالي القيمة"}, "t89": {"en": "QR 52,340", "ar": "٥٢٬٣٤٠ ر.ق"}, "t90": {"en": "This Month Profit", "ar": "الأرباح هذا الشهر"}, "t91": {"en": "+QR 1,623", "ar": "+١٬٦٢٣ ر.ق"}, "t92": {"en": "Expected Annual Return", "ar": "العائد السنوي المتوقع"}, "t93": {"en": "7.8%", "ar": "٧.٨٪"}, "t94": {"en": "Due Purification", "ar": "التطهير المستحق"}, "t95": {"en": "QR 12", "ar": "١٢ ر.ق"}, "t96": {"en": "AI Recommendation", "ar": "توصية الذكاء الاصطناعي"}, "t97": {"en": "Your portfolio is performing excellently this month! 🎉", "ar": "محفظتك في أداء ممتاز هذا الشهر! 🎉"}, "t98": {"en": "My Recommendation:", "ar": "توصيتي لك:"}, "t99": {"en": "Gold is rallying strongly — it may be a good time to add 5-10% of your portfolio in Shariah-compliant commodities.", "ar": "الذهب يشهد ارتفاعاً قوياً — قد يكون وقتاً مناسباً لإضافة ٥-١٠٪ من محفظتك في سلع مقيّمة شرعياً."}, "t100": {"en": "Alert:", "ar": "تحذير:"}, "t101": {"en": "Apple is approaching rebalancing point (35% of portfolio) — I will notify you if it exceeds 40%.", "ar": "سهم Apple قريب من نقطة إعادة التوازن (٣٥٪ من المحفظة) — سأرسل لك تنبيهاً إذا تجاوز ٤٠٪."}, "t102": {"en": "Talk to AI Advisor", "ar": "تحدث مع المستشار الذكي"}, "t103": {"en": "Weekly Report", "ar": "تقرير الأسبوع"}, "t104": {"en": "Top Performer", "ar": "أفضل أداء"}, "t105": {"en": "Qatar Fund", "ar": "صندوق قطر"}, "t106": {"en": "▲ +4.5%", "ar": "▲ +٤.٥٪"}, "t107": {"en": "Portfolio Size", "ar": "حجم التداول"}, "t108": {"en": "QR 52,340", "ar": "٥٢٬٣٤٠ ر.ق"}, "t109": {"en": "Total Portfolio", "ar": "إجمالي المحفظة"}, "t110": {"en": "Purification This Month", "ar": "التطهير هذا الشهر"}, "t111": {"en": "QR 12", "ar": "١٢ ر.ق"}, "t112": {"en": "Suggested Donation", "ar": "تبرع مقترح"}, "t113": {"en": "Goal Progress", "ar": "تقدم الهدف"}, "t114": {"en": "26%", "ar": "٢٦٪"}, "t115": {"en": "of Annual Goal", "ar": "من هدف السنة"}, "t116": {"en": "Home", "ar": "الرئيسية"}, "t117": {"en": "Market", "ar": "السوق"}, "t118": {"en": "Reports", "ar": "التقارير"}, "t119": {"en": "Account", "ar": "حسابي"}, "t120": {"en": "Buy Apple Inc.", "ar": "شراء Apple Inc."}, "t121": {"en": "Number of Shares", "ar": "عدد الأسهم"}, "t122": {"en": "Share Price", "ar": "سعر السهم"}, "t123": {"en": "QR 682", "ar": "٦٨٢ ر.ق"}, "t124": {"en": "Total", "ar": "الإجمالي"}, "t125": {"en": "QR 682", "ar": "٦٨٢ ر.ق"}, "t126": {"en": "Available Balance", "ar": "الرصيد المتاح"}, "t127": {"en": "QR 100,000", "ar": "١٠٠٬٠٠٠ ر.ق"}, "t128": {"en": "Shariah Status", "ar": "حالة الشريعة"}, "t129": {"en": "✅ Halal", "ar": "✅ حلال"}, "t130": {"en": "Confirm Purchase", "ar": "تأكيد الشراء"}, "t131": {"en": "Cancel", "ar": "إلغاء"}, "t132": {"en": "Shariah Purification", "ar": "التطهير الشرعي"}, "t133": {"en": "Total Portfolio", "ar": "محفظتك الإجمالية"}, "t134": {"en": "QR 52,340", "ar": "٥٢٬٣٤٠ ر.ق"}, "t135": {"en": "Purification Rate (AAOIFI)", "ar": "نسبة التطهير (AAOIFI)"}, "t136": {"en": "0.023%", "ar": "٠.٠٢٣٪"}, "t137": {"en": "Amount to Purify", "ar": "المبلغ الواجب تطهيره"}, "t138": {"en": "QR 12", "ar": "١٢ ر.ق"}, "t139": {"en": "💡 Purification is automatically calculated based on AAOIFI standards. The amount is donated to approved Qatari charities.", "ar": "💡 يُحسب التطهير تلقائياً بناءً على معايير AAOIFI للدخل غير المتوافق في محفظتك. المبلغ يُتبرع به لجمعيات خيرية قطرية معتمدة."}, "t140": {"en": "Donate Now to Qatar Charity (QR 12)", "ar": "تبرع الآن لقطر الخير (١٢ ر.ق)"}, "t141": {"en": "Later", "ar": "لاحقاً"}, "acc_name": {"en": "Kholoud Alkuwari", "ar": "خلود الكواري"}, "acc_verified": {"en": "Verified Account", "ar": "حساب موثّق"}, "acc_months": {"en": "Months Active", "ar": "شهر معنا"}, "acc_assets": {"en": "Assets", "ar": "أصول"}, "acc_return": {"en": "Annual Return", "ar": "عائد سنوي"}, "acc_demo": {"en": "Demo version — all data shown is sample data for demonstration purposes.", "ar": "نسخة تجريبية — جميع البيانات المعروضة نموذجية لأغراض العرض فقط."}, "acc_g1": {"en": "INVESTMENT PROFILE", "ar": "الملف الاستثماري"}, "acc_goal": {"en": "Investment Goal", "ar": "الهدف الاستثماري"}, "acc_goal_v": {"en": "Buy a Home", "ar": "شراء منزل"}, "acc_risk": {"en": "Risk Profile", "ar": "الملف المخاطري"}, "acc_risk_v": {"en": "Balanced", "ar": "متوازن"}, "acc_monthly": {"en": "Monthly Investment", "ar": "الاستثمار الشهري"}, "acc_g2": {"en": "ACCOUNT & PAYMENTS", "ar": "الحساب والمدفوعات"}, "acc_bank": {"en": "Linked Bank Account", "ar": "الحساب البنكي المرتبط"}, "acc_bank_s": {"en": "Auto-invest active", "ar": "الاستثمار التلقائي مفعّل"}, "acc_purif": {"en": "Purification History", "ar": "سجل التطهير"}, "acc_purif_s": {"en": "Donated to Qatar Charity", "ar": "تبرعات لقطر الخير"}, "acc_stmt": {"en": "Statements", "ar": "كشوف الحساب"}, "acc_g3": {"en": "PREFERENCES", "ar": "التفضيلات"}, "acc_lang": {"en": "Language", "ar": "اللغة"}, "acc_notif": {"en": "Notifications", "ar": "التنبيهات"}, "acc_notif_s": {"en": "Daily summary at 8:00 AM", "ar": "ملخص يومي الساعة ٨ صباحاً"}, "acc_sec": {"en": "Security", "ar": "الأمان"}, "acc_sec_s": {"en": "Biometric login enabled", "ar": "تسجيل الدخول بالبصمة مفعّل"}, "acc_g4": {"en": "SUPPORT", "ar": "الدعم"}, "acc_help": {"en": "Help Center", "ar": "مركز المساعدة"}, "acc_terms": {"en": "Terms & Privacy", "ar": "الشروط والخصوصية"}, "acc_logout": {"en": "Log Out", "ar": "تسجيل الخروج"}, "acc_nav_home": {"en": "Home", "ar": "الرئيسية"}, "acc_nav_market": {"en": "Market", "ar": "السوق"}, "acc_nav_reports": {"en": "Reports", "ar": "التقارير"}, "acc_nav_account": {"en": "Account", "ar": "حسابي"}, "pf_a1": {"en": "Islamic Funds", "ar": "صناديق إسلامية"}, "pf_a2": {"en": "Global Equities", "ar": "أسهم عالمية"}, "pf_a3": {"en": "Government Sukuk", "ar": "صكوك حكومية"}, "pf_h0": {"en": "Apple Inc.", "ar": "Apple Inc."}, "pf_units0": {"en": "Units", "ar": "الوحدات"}, "pf_cost0": {"en": "Cost", "ar": "التكلفة"}, "pf_gain0": {"en": "Gain", "ar": "الربح"}, "pf_hal0": {"en": "✓ Halal", "ar": "✓ حلال"}, "pf_h1": {"en": "Qatar Growth Fund", "ar": "صندوق قطر للنمو"}, "pf_units1": {"en": "Units", "ar": "الوحدات"}, "pf_cost1": {"en": "Cost", "ar": "التكلفة"}, "pf_gain1": {"en": "Gain", "ar": "الربح"}, "pf_hal1": {"en": "✓ Halal", "ar": "✓ حلال"}, "pf_h2": {"en": "Qatar Government Sukuk", "ar": "صكوك حكومية قطرية"}, "pf_units2": {"en": "Units", "ar": "الوحدات"}, "pf_cost2": {"en": "Cost", "ar": "التكلفة"}, "pf_gain2": {"en": "Gain", "ar": "الربح"}, "pf_hal2": {"en": "✓ Halal", "ar": "✓ حلال"}, "pf_title": {"en": "My Portfolio", "ar": "محفظتي"}, "pf_sub": {"en": "Detailed breakdown of your investments", "ar": "تفصيل كامل لاستثماراتك"}, "pf_total_lbl": {"en": "Total Value", "ar": "القيمة الإجمالية"}, "pf_alloc": {"en": "Asset Allocation", "ar": "توزيع الأصول"}, "pf_reb_t": {"en": "Auto-Rebalancing", "ar": "إعادة التوازن التلقائية"}, "pf_reb_d": {"en": "Our AI monitors your allocation and rebalances automatically when it drifts more than 5% from target.", "ar": "الذكاء الاصطناعي يراقب توزيع محفظتك ويعيد التوازن تلقائياً عند انحرافه أكثر من ٥٪ عن الهدف."}, "pf_hold": {"en": "Holdings", "ar": "الأصول المملوكة"}, "nv_home_portfolio-screen": {"en": "Home", "ar": "الرئيسية"}, "nv_mkt_portfolio-screen": {"en": "Market", "ar": "السوق"}, "nv_rep_portfolio-screen": {"en": "Reports", "ar": "التقارير"}, "nv_acc_portfolio-screen": {"en": "Account", "ar": "حسابي"}, "scr_t1": {"en": "Debt / Market Cap", "ar": "الديون / القيمة السوقية"}, "scr_t2": {"en": "Interest Income", "ar": "الدخل من الفوائد"}, "scr_t3": {"en": "Liquid Assets", "ar": "الأصول السائلة"}, "scr_n0": {"en": "Apple Inc.", "ar": "Apple Inc."}, "scr_ty0": {"en": "Technology", "ar": "تكنولوجيا"}, "scr_p0": {"en": "Compliant", "ar": "متوافق"}, "scr_t4": {"en": "Debt / Market Cap", "ar": "الديون / القيمة السوقية"}, "scr_t5": {"en": "Interest Income", "ar": "الدخل من الفوائد"}, "scr_t6": {"en": "Liquid Assets", "ar": "الأصول السائلة"}, "scr_n1": {"en": "Qatar Growth Fund", "ar": "صندوق قطر للنمو"}, "scr_ty1": {"en": "Islamic Fund", "ar": "صندوق إسلامي"}, "scr_p1": {"en": "Compliant", "ar": "متوافق"}, "scr_t7": {"en": "Structure", "ar": "الهيكل"}, "scr_t8": {"en": "Interest Income", "ar": "الدخل من الفوائد"}, "scr_t9": {"en": "SSB Approval", "ar": "اعتماد الهيئة"}, "scr_n2": {"en": "Qatar Government Sukuk", "ar": "صكوك حكومية قطرية"}, "scr_ty2": {"en": "Sukuk", "ar": "صكوك"}, "scr_p2": {"en": "Compliant", "ar": "متوافق"}, "scr_title": {"en": "Shariah Screening", "ar": "الفحص الشرعي"}, "scr_sub": {"en": "AAOIFI standards · Updated quarterly", "ar": "معايير AAOIFI · تُحدّث ربع سنوياً"}, "scr_all": {"en": "All Holdings Compliant", "ar": "جميع أصولك متوافقة"}, "scr_all_s": {"en": "Last screened today · 3 of 3 assets passed", "ar": "آخر فحص اليوم · ٣ من ٣ أصول اجتازت"}, "scr_how": {"en": "How screening works", "ar": "كيف يعمل الفحص"}, "scr_how_d": {"en": "Every asset passes two stages: business activity screening (no alcohol, gambling, conventional banking), then financial ratio tests based on AAOIFI thresholds.", "ar": "كل أصل يمر بمرحلتين: فحص نشاط الشركة (لا خمور ولا قمار ولا بنوك ربوية)، ثم اختبار النسب المالية وفق حدود AAOIFI."}, "scr_detail": {"en": "Screening Details", "ar": "تفاصيل الفحص"}, "scr_note": {"en": "Quarterly updates", "ar": "تحديث ربع سنوي"}, "scr_note_d": {"en": "Company financials change every quarter. If any holding stops meeting the thresholds, you will be notified immediately.", "ar": "البيانات المالية للشركات تتغير كل ربع سنة. إذا خرج أي أصل عن الحدود المسموحة، سيصلك تنبيه فوري."}, "nv_home_screening-screen": {"en": "Home", "ar": "الرئيسية"}, "nv_mkt_screening-screen": {"en": "Market", "ar": "السوق"}, "nv_rep_screening-screen": {"en": "Reports", "ar": "التقارير"}, "nv_acc_screening-screen": {"en": "Account", "ar": "حسابي"}};
+const UI = {"toast_portfolio": {"ar": "قريباً: صفحة المحفظة التفصيلية", "en": "Coming Soon: Detailed Portfolio Page"}, "toast_halal": {"ar": "✅ كل استثماراتك حلال بموجب AAOIFI", "en": "✅ All your investments are Halal per AAOIFI"}, "toast_account": {"ar": "صفحة الحساب - قريباً", "en": "Account Page - Coming Soon"}, "toast_donated": {"ar": "✅ تم التبرع بـ ١٢ ر.ق لقطر الخير", "en": "✅ QR 12 donated to Qatar Charity"}, "toast_created": {"ar": "🎉 تم إنشاء محفظتك الشخصية بنجاح!", "en": "🎉 Your personal portfolio has been created!"}, "toast_nobalance": {"ar": "❌ رصيد غير كافٍ", "en": "❌ Insufficient balance"}, "toast_noholding": {"ar": "❌ لا تملك كافية من هذا الأصل", "en": "❌ Insufficient holdings for this asset"}, "buy_confirm": {"ar": "تأكيد الشراء ✓", "en": "Confirm Buy ✓"}, "sell_confirm": {"ar": "تأكيد البيع ✓", "en": "Confirm Sell ✓"}, "buy_prefix": {"ar": "شراء ", "en": "Buy "}, "sell_prefix": {"ar": "بيع ", "en": "Sell "}, "buy_btn": {"ar": "شراء +", "en": "Buy +"}, "sell_btn": {"ar": "بيع −", "en": "Sell −"}, "halal_tag": {"ar": "✓ حلال", "en": "✓ Halal"}, "next_btn": {"ar": "التالي ←", "en": "Next →"}, "per_month": {"ar": "شهرياً", "en": "per month"}, "input_ph": {"ar": "اكتب سؤالك هنا...", "en": "Type your question here..."}, "bought": {"ar": "✅ تم شراء", "en": "✅ Bought"}, "sold": {"ar": "✅ تم بيع", "en": "✅ Sold"}, "of": {"ar": "من", "en": "of"}, "monthly_label": {"ar": "ر.ق / شهرياً", "en": "QR / month"}, "toast_demo": {"en": "Demo version — feature not active", "ar": "نسخة تجريبية — الميزة غير مفعّلة"}};
 const SUGG = [{"ar": "ما هو أداء محفظتي هذا الشهر؟", "en": "What is my portfolio performance this month?"}, {"ar": "كيف أعرف إذا السهم حلال؟", "en": "How do I know if a stock is halal?"}, {"ar": "ما هو الصكوك؟", "en": "What is Sukuk?"}, {"ar": "ما هي توصيتك لي هذا الشهر؟", "en": "What is your recommendation for me this month?"}, {"ar": "كيف أحسب التطهير؟", "en": "How is purification calculated?"}];
 const WELCOME = {"ar": "مرحباً خلود! 👋<br><br>أنا مستشارك المالي الذكي في إثمار. أقدر أساعدك في:<br>• فهم استثماراتك وأدائها<br>• شرح أي مفهوم مالي بالعربي<br>• توصيات مبنية على ملفك الاستثماري<br>• التحقق من التوافق الشرعي<br><br>شنو يخدمك اليوم؟ 😊", "en": "Hello Kholoud! 👋<br><br>I'm your AI Financial Advisor at Athmaar. I can help you with:<br>• Understanding your investments and performance<br>• Explaining any financial concept simply<br>• Personalized investment recommendations<br>• Verifying Shariah compliance<br><br>How can I help you today? 😊"};
 
@@ -1478,165 +2071,115 @@ const STOCKS_EN = [
 ];
 
 async function callAI_ar(userMessage) {
-  // Smart local AI responses - works without API
-  await new Promise(r => setTimeout(r, 1200 + Math.random() * 800));
-  
-  const msg = userMessage.toLowerCase();
-  
-  if (msg.includes('أداء') || msg.includes('محفظ') || msg.includes('هذا الشهر')) {
-    return `محفظتك تؤدي ممتاز هذا الشهر خلود! 📊\n\nإجمالي المحفظة: ٥٢٬٣٤٠ ر.ق\nالأرباح: +١٬٦٢٣ ر.ق (+٣.٢٪)\n\nأفضل أداء: صندوق قطر للنمو بـ +٤.٥٪ 🏆\n\nمحفظتك تتفوق على السوق بنسبة ١.٤٪ — استمري على نفس الاستراتيجية!`;
-  }
-  
-  if (msg.includes('حلال') || msg.includes('شرعي') || msg.includes('شريعة') || msg.includes('فحص')) {
-    return `فحص الشريعة الإسلامية في إثمار يعتمد على معايير AAOIFI العالمية ✅\n\nنفحص ٣ أشياء لكل سهم:\n١. نشاط الشركة (لا خمور، لا قمار)\n٢. نسبة الديون (أقل من ٣٣٪)\n٣. الدخل غير الحلال (أقل من ٥٪)\n\nكل استثماراتك الحالية حلال ١٠٠٪ ✅`;
-  }
-  
-  if (msg.includes('صكوك') || msg.includes('sukuk')) {
-    return `الصكوك هي البديل الإسلامي للسندات 📋\n\nبدلاً من إقراض مال بفائدة (ربا)، أنت تشتري حصة في أصل حقيقي — مثل عقار أو مشروع.\n\nالفرق الجوهري:\n• السند = قرض بفائدة ❌\n• الصك = شراكة في أصل ✅\n\nالصكوك الحكومية القطرية في محفظتك تعطيك ١.٢٪ سنوياً مع أمان عالٍ جداً 🇶🇦`;
-  }
-  
-  if (msg.includes('تطهير') || msg.includes('purif') || msg.includes('زكاة') || msg.includes('زكاه')) {
-    return `التطهير هو تنقية دخلك من أي نسبة صغيرة غير متوافقة شرعياً 🤲\n\nمحفظتك الحالية:\nإجمالي: ٥٢٬٣٤٠ ر.ق\nنسبة التطهير (AAOIFI): ٠.٠٢٣٪\nالمبلغ الواجب: ١٢ ر.ق فقط\n\nإثمار يحسب هذا تلقائياً كل شهر ويتيح لك التبرع بضغطة واحدة لجمعيات قطرية معتمدة 💙`;
-  }
-  
-  if (msg.includes('توصية') || msg.includes('توصيت') || msg.includes('انصح') || msg.includes('أنصح')) {
-    return `توصيتي لك هذا الشهر خلود 💡\n\nمحفظتك متوازنة بشكل جيد، لكن الذهب يشهد ارتفاعاً قوياً (+١.٢٪ اليوم).\n\nأقترح:\n• إضافة ٥-١٠٪ ذهب من محفظتك\n• الاحتفاظ بصندوق قطر (أداءه ممتاز)\n• مراقبة Apple قبل إضافة المزيد\n\n⚠️ هذه توصية تعليمية، ليست استشارة مالية رسمية.`;
-  }
-  
-  if (msg.includes('ذهب') || msg.includes('gold')) {
-    return `الذهب في إثمار متاح بشكل متوافق مع الشريعة الإسلامية ✅\n\nالذهب اليوم: ٧٬٢٠٠ ر.ق للأوقية\nالتغيير: ▲ +١.٢٪\n\nلماذا الذهب؟\n• حماية من التضخم\n• ملاذ آمن في الأوقات الصعبة\n• سيولة عالية\n\nينصح المحللون بـ ٥-١٥٪ من المحفظة في الذهب كحد أقصى.`;
-  }
-  
-  if (msg.includes('مبتدئ') || msg.includes('بدء') || msg.includes('ابدأ') || msg.includes('أبدأ') || msg.includes('كيف')) {
-    return `مرحباً بك في عالم الاستثمار! 🌱\n\nخطواتك الأولى:\n١. حدد هدفك (شراء منزل؟ تقاعد؟ دخل إضافي؟)\n٢. ابدأ بمبلغ مريح لك (ولو ١٠٠٠ ر.ق شهرياً)\n٣. وزع على ٣ أنواع على الأقل (تنويع)\n٤. استمر بانتظام وتجاهل التقلبات اليومية\n\nأهم شيء: البداية أفضل من الانتظار! 💪`;
-  }
-  
-  if (msg.includes('خسار') || msg.includes('مخاطر') || msg.includes('خوف') || msg.includes('خايف')) {
-    return `الخوف من الخسارة طبيعي جداً ✅\n\nلكن الحقيقة:\n• التضخم يأكل فلوسك في البنك كل سنة\n• التنويع يقلل المخاطرة بشكل كبير\n• الاستثمار طويل المدى دائماً يربح تاريخياً\n\nفي إثمار:\n• نبدأ بأقل مخاطرة (صكوك + ذهب)\n• نتدرج معك برفق\n• المحاكاة التدريبية تخليك تتعلم بدون خسارة حقيقية 😊`;
-  }
+  await new Promise(r => setTimeout(r, 1000 + Math.random() * 700));
+  const m = userMessage.toLowerCase();
+  const has = (...w) => w.some(x => m.includes(x));
 
-  // Default response
-  const defaults = [
-    `شكراً على سؤالك! 😊\n\nأنا متخصص في الإجابة على أسئلة الاستثمار الإسلامي وإثمار.\n\nجرب تسألني عن:\n• أداء محفظتك\n• الفحص الشرعي\n• شرح الصكوك أو الذهب\n• توصيات الاستثمار`,
-    `سؤال ممتاز! 🤔\n\nللإجابة بدقة، محتاج معلومة أكثر. هل تقصد:\n• أداء استثماراتك الحالية؟\n• معلومات عن نوع استثمار معين؟\n• توصية بناءً على أهدافك؟\n\nأنا هنا لمساعدتك 💙`,
-  ];
-  return defaults[Math.floor(Math.random() * defaults.length)];
+  if (has('أداء','محفظت','هذا الشهر','كم ربحت','ارباح','أرباح'))
+    return `محفظتك تؤدي بشكل ممتاز هذا الشهر خلود! 📊\n\nإجمالي المحفظة: ٥٢٬٣٤٠ ر.ق\nالأرباح: +١٬٦٢٣ ر.ق (+٣.٢٪)\n\nأفضل أداء: صندوق قطر للنمو +٤.٥٪ 🏆\n\nمحفظتك تتفوق على السوق بـ ١.٤٪ — استمري على نفس الاستراتيجية.`;
+
+  if (has('حلال','شرعي','شريعة','فحص','حرام','aaoifi'))
+    return `الفحص الشرعي في إثمار يعتمد على معايير AAOIFI ✅\n\nنفحص ثلاثة أشياء لكل استثمار:\n١. نشاط الشركة (لا خمور، لا قمار، لا بنوك ربوية)\n٢. الديون بفوائد — أقل من ٣٠٪ من القيمة السوقية\n٣. الدخل المحرّم — أقل من ٥٪ من إجمالي الدخل\n\nكل استثماراتك الحالية متوافقة ١٠٠٪ ✅`;
+
+  if (has('صكوك','صك','sukuk'))
+    return `الصكوك هي البديل الإسلامي للسندات 📋\n\nبدل ما تُقرض مالاً بفائدة (ربا)، أنت تشتري حصة في أصل حقيقي — عقار أو مشروع.\n\nالفرق الجوهري:\n• السند = قرض بفائدة ❌\n• الصك = شراكة في أصل ✅\n\nالصكوك الحكومية القطرية في محفظتك تعطيك ١.٢٪ بأمان عالٍ جداً 🇶🇦`;
+
+  if (has('تطهير','تطهر','زكاة','زكاه','purif'))
+    return `التطهير هو تنقية دخلك من أي نسبة صغيرة غير متوافقة شرعاً 🤲\n\nمحفظتك حالياً:\nالإجمالي: ٥٢٬٣٤٠ ر.ق\nنسبة التطهير (AAOIFI): ٠.٠٢٣٪\nالمبلغ الواجب: ١٢ ر.ق فقط\n\nإثمار يحسبها تلقائياً كل شهر، وتقدرين تتبرعين بضغطة واحدة لجمعيات قطرية معتمدة 💙`;
+
+  if (has('توصية','توصيت','انصح','أنصح','رأيك','شنو تنصح'))
+    return `توصيتي لك هذا الشهر 💡\n\nمحفظتك متوازنة بشكل جيد، والذهب يشهد ارتفاعاً قوياً (+١.٢٪).\n\nمقترحاتي:\n• إضافة ٥-١٠٪ ذهب لتنويع أفضل\n• الاحتفاظ بصندوق قطر (أداؤه ممتاز)\n• مراقبة Apple قبل إضافة المزيد\n\n⚠️ هذه توصية تعليمية وليست استشارة مالية رسمية.`;
+
+  if (has('ذهب','gold','معادن'))
+    return `الذهب في إثمار متاح بشكل متوافق مع الشريعة ✅\n\nالسعر اليوم: ٧٬٢٠٠ ر.ق للأوقية\nالتغيير: ▲ +١.٢٪\n\nلماذا الذهب؟\n• حماية من التضخم\n• ملاذ آمن وقت التقلبات\n• سيولة عالية\n\nينصح المحللون بـ ٥-١٥٪ من المحفظة كحد أقصى.`;
+
+  if (has('ابدأ','أبدأ','بدء','مبتدئ','كيف اسوي','كيف أسوي','من وين'))
+    return `مرحباً بك في عالم الاستثمار! 🌱\n\nخطواتك الأولى:\n١. حددي هدفك (منزل؟ تقاعد؟ دخل إضافي؟)\n٢. ابدئي بمبلغ مريح — حتى ١٬٠٠٠ ر.ق شهرياً\n٣. نوّعي على ٣ أنواع أصول على الأقل\n٤. استمري بانتظام وتجاهلي التقلبات اليومية\n\nالأهم: البداية أفضل من الانتظار 💪`;
+
+  if (has('خسار','مخاطر','خوف','خايف','أخاف','اخاف'))
+    return `الخوف من الخسارة طبيعي جداً ✅\n\nلكن الحقيقة:\n• التضخم يأكل مدخراتك في البنك كل سنة\n• التنويع يقلل المخاطرة بشكل كبير\n• الاستثمار طويل المدى ربح تاريخياً\n\nفي إثمار:\n• نبدأ بأقل مخاطرة (صكوك + ذهب)\n• نتدرج معك برفق\n• المحاكاة التدريبية تخليك تتعلمين بدون خسارة حقيقية 😊`;
+
+  if (has('اسهم','أسهم','سهم','stock','شركات'))
+    return `الأسهم متاحة في إثمار — عالمية ومحلية، ومفحوصة شرعياً 📈\n\nفي محفظتك حالياً:\n• Apple — ١٨٬٢٠٠ ر.ق (+٢.١٪)\n\nنقدم أسهماً أمريكية وخليجية بعد فحص AAOIFI الكامل.\n\nوبفضل الاستثمار الجزئي، تقدرين تملكين جزءاً من سهم غالٍ بمبلغ صغير 🎯`;
+
+  if (has('عقار','ريت','reit','عقاري'))
+    return `الاستثمار العقاري متاح عبر صناديق REITs المتوافقة شرعاً 🏢\n\nالميزة: تملكين حصة في محفظة عقارات مدرّة للدخل — بدون شراء عقار كامل.\n\nالعوائد عادة من الإيجارات، وهي أكثر استقراراً من الأسهم.\n\nينصح بـ ١٠-٢٠٪ من المحفظة للعقار.`;
+
+  if (has('رسوم','عمولة','كم تاخذ','كم تأخذ','تكلفة','سعر الاشتراك','اشتراك'))
+    return `رسوم إثمار بسيطة وشفافة 💳\n\n• رسوم إدارة: ٠.٧٪ سنوياً من قيمة استثماراتك\n  مثال: على ٥٠٬٠٠٠ ر.ق = ٣٥٠ ر.ق في السنة\n\n• اشتراك شهري: ٢٩ ر.ق (أساسي) أو ٩٩ ر.ق (متقدم)\n\nلا عمولات على كل عملية، ولا رسوم مخفية — والرسوم متوافقة شرعاً ✅`;
+
+  if (has('اسحب','أسحب','سحب','withdraw','استرجع','أطلع فلوس'))
+    return `تقدرين تسحبين في أي وقت 💰\n\nالخطوات:\n١. تطلبين السحب من التطبيق\n٢. نبيع نسبياً من كل أصولك\n٣. يوصلك المبلغ خلال ٣-٧ أيام عمل\n\nملاحظة: التحويل يكون لحسابك البنكي بنفس اسمك فقط (متطلب تنظيمي) ✅`;
+
+  if (has('تنويع','توزيع','محفظة متوازنة','نسب'))
+    return `التنويع أهم قاعدة في الاستثمار 🎯\n\nمحفظتك الحالية موزعة على:\n• أسهم عالمية — ٣٥٪\n• صناديق إسلامية — ٣٨٪\n• صكوك حكومية — ٢٧٪\n\nالقاعدة الذهبية: لا تضعي كل شيء في نوع واحد. الذكاء الاصطناعي يعيد التوازن تلقائياً كل ما تغيرت الأسعار ✅`;
+
+  if (has('امان','أمان','آمن','حماية','فلوسي مضمونة','security'))
+    return `أمان أموالك أولوية قصوى 🔒\n\n• أموالك لا تُحفظ لدى إثمار إطلاقاً — بل لدى وسيط مرخّص\n• الحسابات مفصولة تماماً عن أموال الشركة\n• تشفير كامل للبيانات\n• التزام بمعايير حماية البيانات\n\nإثمار منصة توجيه وتقنية — والحفظ والتنفيذ لدى جهات مرخّصة ✅`;
+
+  if (has('شكرا','شكراً','مشكور','يعطيك العافية','تسلم'))
+    return `العفو خلود! 😊 سعيد إني قدرت أساعدك.\n\nأي وقت عندك سؤال عن استثماراتك أو أي مفهوم مالي — أنا هنا 💙`;
+
+  if (has('مرحبا','مرحباً','هلا','السلام','اهلا','أهلا','هاي'))
+    return `أهلاً وسهلاً خلود! 👋\n\nكيف أقدر أساعدك اليوم؟ تقدرين تسألينني عن:\n• أداء محفظتك\n• أي مفهوم مالي (صكوك، أسهم، ذهب...)\n• التوافق الشرعي والتطهير\n• توصيات مبنية على ملفك`;
+
+  return `سؤال ممتاز! 🤔\n\nأقدر أساعدك في مواضيع كثيرة — جربي تسأليني عن:\n\n📊 أداء محفظتك\n🔍 الفحص الشرعي والتطهير\n📋 شرح الصكوك أو الأسهم أو الذهب\n💡 توصيات الاستثمار\n💳 الرسوم والاشتراكات\n🔒 أمان أموالك\n\nأو اكتبي سؤالك بطريقة ثانية وأحاول أساعدك 💙`;
 }
 
 async function callAI_en(userMessage) {
-  await new Promise(r => setTimeout(r, 1200 + Math.random() * 800));
-  const msg = userMessage.toLowerCase();
-  
-  if (msg.includes('performance') || msg.includes('portfolio') || msg.includes('month')) {
-    return `Your portfolio is performing great this month! 📊
+  await new Promise(r => setTimeout(r, 1000 + Math.random() * 700));
+  const m = userMessage.toLowerCase();
+  const has = (...w) => w.some(x => m.includes(x));
 
-Total Portfolio: QR 52,340
-Profit: +QR 1,623 (+3.2%)
+  if (has('performance','portfolio','this month','how much','profit','return'))
+    return `Your portfolio is performing great this month! 📊\n\nTotal Portfolio: QR 52,340\nProfit: +QR 1,623 (+3.2%)\n\nTop performer: Qatar Growth Fund at +4.5% 🏆\n\nYou're outperforming the market by 1.4% — keep it up!`;
 
-Top Performer: Qatar Growth Fund at +4.5% 🏆
+  if (has('halal','shariah','sharia','screen','compliant','aaoifi','haram'))
+    return `Athmaar's Shariah screening follows AAOIFI standards ✅\n\nWe check three things for every investment:\n1. Business activity (no alcohol, gambling, conventional banking)\n2. Interest-bearing debt — below 30% of market cap\n3. Non-compliant income — below 5% of total revenue\n\nAll your current holdings are 100% compliant ✅`;
 
-Your portfolio is outperforming the market by 1.4% — keep it up!`;
-  }
-  if (msg.includes('halal') || msg.includes('shariah') || msg.includes('screen') || msg.includes('compliant')) {
-    return `Athmaar's Shariah screening uses AAOIFI international standards ✅
+  if (has('sukuk','bond'))
+    return `Sukuk is the Islamic alternative to bonds 📋\n\nInstead of lending money at interest (riba), you buy a share in a real asset — property or a project.\n\nKey difference:\n• Bond = loan with interest ❌\n• Sukuk = partnership in an asset ✅\n\nYour Qatar Government Sukuk yields 1.2% with very high security 🇶🇦`;
 
-We check 3 things for every investment:
-1. Business activity (no alcohol, gambling, etc.)
-2. Debt ratio (below 33%)
-3. Non-compliant income (below 5%)
+  if (has('purif','zakat','tatheer','cleanse'))
+    return `Purification cleanses your income from any small non-compliant portion 🤲\n\nYour portfolio today:\nTotal: QR 52,340\nPurification rate (AAOIFI): 0.023%\nAmount due: Only QR 12\n\nAthmaar calculates this automatically each month, and you can donate with one tap to approved Qatari charities 💙`;
 
-All your current investments are 100% Halal ✅`;
-  }
-  if (msg.includes('sukuk')) {
-    return `Sukuk is the Islamic alternative to bonds 📋
+  if (has('recommend','suggest','advice','what should','opinion'))
+    return `My recommendation for you this month 💡\n\nYour portfolio is well balanced, and gold is showing strong momentum (+1.2%).\n\nSuggestions:\n• Add a 5-10% gold allocation for better diversification\n• Hold Qatar Growth Fund (excellent performance)\n• Monitor Apple before adding more\n\n⚠️ This is educational guidance, not formal financial advice.`;
 
-Instead of lending money with interest (riba), you buy a share in a real asset — like a property or project.
+  if (has('gold','metal','commodit'))
+    return `Gold at Athmaar is offered in a Shariah-compliant structure ✅\n\nToday: QR 7,200/oz\nChange: ▲ +1.2%\n\nWhy gold?\n• Hedge against inflation\n• Safe haven during volatility\n• High liquidity\n\nAnalysts suggest 5-15% of a portfolio as a maximum.`;
 
-Key difference:
-• Bond = loan with interest ❌
-• Sukuk = partnership in an asset ✅
+  if (has('start','begin','beginner','new to','how do i invest','where do i'))
+    return `Welcome to investing! 🌱\n\nYour first steps:\n1. Define your goal (home? retirement? extra income?)\n2. Start with a comfortable amount — even QR 1,000/month\n3. Diversify across at least 3 asset types\n4. Stay consistent and ignore daily noise\n\nMost important: starting now beats waiting 💪`;
 
-Qatar Government Sukuk in your portfolio gives you 1.2% annually with very high security 🇶🇦`;
-  }
-  if (msg.includes('purif') || msg.includes('zakat') || msg.includes('tatheer')) {
-    return `Purification (Tatheer) cleanses your income from any small non-compliant portion 🤲
+  if (has('risk','loss','afraid','scared','safe to invest','lose money'))
+    return `Fear of loss is completely natural ✅\n\nThe reality:\n• Inflation erodes idle savings every year\n• Diversification meaningfully reduces risk\n• Long-term investing has historically won\n\nAt Athmaar:\n• We start with lower-risk assets (sukuk + gold)\n• We progress gradually with you\n• The simulator lets you practise without real losses 😊`;
 
-Your current portfolio:
-Total: QR 52,340
-Purification Rate (AAOIFI): 0.023%
-Amount Due: Only QR 12
+  if (has('stock','share','equity','apple','company'))
+    return `Stocks are available at Athmaar — global and regional, all Shariah-screened 📈\n\nCurrently in your portfolio:\n• Apple — QR 18,200 (+2.1%)\n\nWe offer US and GCC equities after full AAOIFI screening.\n\nThanks to fractional investing, you can own part of an expensive share with a small amount 🎯`;
 
-Athmaar calculates this automatically every month and lets you donate to approved Qatari charities with one tap 💙`;
-  }
-  if (msg.includes('recommend') || msg.includes('suggest') || msg.includes('advice')) {
-    return `My recommendation for you this month 💡
+  if (has('real estate','reit','property'))
+    return `Real estate is available through Shariah-compliant REITs 🏢\n\nThe advantage: you own a share of an income-generating property portfolio — without buying a whole property.\n\nReturns typically come from rental income, which is more stable than equities.\n\nA 10-20% allocation is commonly suggested.`;
 
-Your portfolio is well-balanced, but gold is showing strong momentum (+1.2% today).
+  if (has('fee','commission','cost','how much do you charge','subscription','price'))
+    return `Athmaar's fees are simple and transparent 💳\n\n• Management fee: 0.7% annually on your invested assets\n  Example: on QR 50,000 = QR 350 per year\n\n• Monthly subscription: QR 29 (Basic) or QR 99 (Premium)\n\nNo per-trade commissions, no hidden charges — and the fee structure is Shariah-permissible ✅`;
 
-Suggestions:
-• Add 5-10% gold allocation
-• Hold Qatar Growth Fund (excellent performance)
-• Monitor Apple before adding more
+  if (has('withdraw','cash out','take my money','my funds'))
+    return `You can withdraw at any time 💰\n\nHow it works:\n1. Request a withdrawal in the app\n2. We sell proportionally across your holdings\n3. Funds reach you within 3-7 business days\n\nNote: transfers go only to a bank account in your own name (a regulatory requirement) ✅`;
 
-⚠️ This is educational guidance, not formal financial advice.`;
-  }
-  if (msg.includes('gold')) {
-    return `Gold at Athmaar is available in a Shariah-compliant way ✅
+  if (has('diversif','allocation','balance','spread'))
+    return `Diversification is the most important rule in investing 🎯\n\nYour current allocation:\n• Global equities — 35%\n• Islamic funds — 38%\n• Government sukuk — 27%\n\nThe golden rule: never put everything in one asset type. Our AI rebalances automatically as prices shift ✅`;
 
-Gold Today: QR 7,200/oz
-Change: ▲ +1.2%
+  if (has('safe','secure','protect','custody','trust'))
+    return `The safety of your money is a top priority 🔒\n\n• Your funds are never held by Athmaar — they sit with a licensed broker\n• Accounts are fully segregated from company funds\n• Full data encryption\n• Compliance with data protection standards\n\nAthmaar is a guidance and technology layer — custody and execution stay with licensed institutions ✅`;
 
-Why Gold?
-• Hedge against inflation
-• Safe haven in uncertain times
-• High liquidity
+  if (has('thank','thanks','appreciate'))
+    return `You're very welcome! 😊 Glad I could help.\n\nAnytime you have a question about your investments or any financial concept — I'm here 💙`;
 
-Analysts recommend 5-15% of portfolio maximum in gold.`;
-  }
-  if (msg.includes('begin') || msg.includes('start') || msg.includes('new') || msg.includes('how')) {
-    return `Welcome to the world of investing! 🌱
+  if (has('hello','hi ','hey','salam','good morning','good evening'))
+    return `Hello Kholoud! 👋\n\nHow can I help you today? You can ask me about:\n• Your portfolio performance\n• Any financial concept (sukuk, stocks, gold...)\n• Shariah compliance and purification\n• Recommendations based on your profile`;
 
-Your first steps:
-1. Define your goal (home? retirement? extra income?)
-2. Start with a comfortable amount (even QR 1,000/month)
-3. Diversify across 3+ asset types
-4. Stay consistent and ignore short-term fluctuations
-
-Most important: starting now beats waiting! 💪`;
-  }
-  if (msg.includes('risk') || msg.includes('loss') || msg.includes('afraid') || msg.includes('scared')) {
-    return `Fear of loss is completely natural ✅
-
-The reality:
-• Inflation erodes your savings every year
-• Diversification significantly reduces risk
-• Long-term investing always wins historically
-
-At Athmaar:
-• We start with lowest risk (sukuk + gold)
-• We grow with you gradually
-• The simulator lets you learn without real losses 😊`;
-  }
-  const defaults = [
-    `Great question! 😊
-
-I specialize in Islamic investment guidance and Athmaar's platform.
-
-Try asking me about:
-• Your portfolio performance
-• Shariah compliance screening
-• Sukuk or Gold explained
-• Investment recommendations`,
-    `I'd be happy to help! 🤔
-
-Could you clarify what you mean? Are you asking about:
-• Your current investment performance?
-• Information about a specific investment type?
-• A recommendation based on your goals?
-
-I'm here to help 💙`,
-  ];
-  return defaults[Math.floor(Math.random() * defaults.length)];
+  return `Great question! 🤔\n\nI can help with many topics — try asking me about:\n\n📊 Your portfolio performance\n🔍 Shariah screening and purification\n📋 Sukuk, stocks, or gold explained\n💡 Investment recommendations\n💳 Fees and subscriptions\n🔒 How your money is protected\n\nOr rephrase your question and I'll do my best 💙`;
 }
 
 let LANG = 'ar';
@@ -1694,13 +2237,38 @@ function applyLanguage(lang) {
       ? ['أداء المحفظة','الفحص الشرعي','شرح الصكوك','توصية الشهر','التطهير']
       : ['Portfolio Performance','Shariah Screening','What is Sukuk?','Monthly Recommendation','Purification'];
     sc.innerHTML = SUGG.map((s,i) =>
-      `<button class="suggestion-chip" onclick="sendSuggestion(${JSON.stringify(JSON.stringify(s[lang])) })">${labels[i]}</button>`
+      `<button class="suggestion-chip" data-sugg="${i}">${labels[i]}</button>`
     ).join('');
+    sc.querySelectorAll('[data-sugg]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        sendSuggestion(SUGG[+btn.getAttribute('data-sugg')][LANG]);
+      });
+    });
   }
 
   // reset chat to welcome message in current language
   const cm = document.getElementById('chat-messages');
   if (cm) cm.innerHTML = `<div class="msg msg-ai">${WELCOME[lang]}</div>`;
+
+  // localised numeric values (data-val-ar / data-val-en)
+  document.querySelectorAll('[data-val-ar]').forEach(el => {
+    const v = el.getAttribute(lang === 'ar' ? 'data-val-ar' : 'data-val-en');
+    if (v) el.textContent = v;
+  });
+
+  // account screen dynamic values
+  const lv = document.getElementById('acc-lang-val');
+  if (lv) lv.textContent = lang === 'ar' ? 'العربية' : 'English';
+  const mv = document.getElementById('acc-monthly-val');
+  if (mv) mv.textContent = lang === 'ar' ? '٢٬٠٠٠ ر.ق' : 'QR 2,000';
+  const pv = document.getElementById('acc-purif-val');
+  if (pv) pv.textContent = lang === 'ar' ? '٨٦ ر.ق' : 'QR 86';
+  const am = document.getElementById('acc-months');
+  if (am) am.textContent = lang === 'ar' ? '١٤' : '14';
+  const aa = document.getElementById('acc-assets');
+  if (aa) aa.textContent = lang === 'ar' ? '٤' : '4';
+  const ar_ = document.getElementById('acc-return');
+  if (ar_) ar_.textContent = lang === 'ar' ? '+٧.٨٪' : '+7.8%';
 
   // re-render dynamic views
   if (typeof renderStep === 'function') renderStep();
@@ -1772,24 +2340,32 @@ function renderStep() {
     `;
   } else if (step.type === 'slider') {
     const val = selections[currentStep] || step.default;
+    const cur = LANG === 'ar' ? 'ر.ق' : 'QR';
     body.innerHTML = `
       <div class="slider-container">
-        <div class="amount-display">${LANG==='ar' ? val.toLocaleString('ar')+' ر.ق' : 'QR '+val.toLocaleString('en')}</div>
+        <div class="amount-input-wrap">
+          ${LANG === 'ar' ? '' : `<span class="amount-cur">${cur}</span>`}
+          <input type="text" inputmode="numeric" class="amount-input" id="amount-input"
+            value="${val.toLocaleString(LANG==='ar'?'ar-EG':'en')}"
+            oninput="onAmountInput(this)" onblur="onAmountBlur(this)">
+          ${LANG === 'ar' ? `<span class="amount-cur">${cur}</span>` : ''}
+        </div>
         <div class="amount-label">${t('per_month')}</div>
-        <input type="range" min="${step.min}" max="${step.max}" value="${val}"
-          oninput="updateSlider(this.value)"
+        <div class="amount-hint" id="amount-hint"></div>
+        <input type="range" min="${step.min}" max="${step.max}" step="100" value="${Math.min(Math.max(val, step.min), step.max)}"
+          id="amount-range" oninput="updateSlider(this.value)"
           style="direction:ltr">
         <div style="display:flex;justify-content:space-between;margin-top:8px;font-size:12px;color:var(--gray)">
-          <span>QR ${step.min}</span>
-          <span>QR ${step.max.toLocaleString()}</span>
+          <span>${LANG==='ar' ? step.min.toLocaleString('ar-EG')+' ر.ق' : 'QR '+step.min.toLocaleString()}</span>
+          <span>${LANG==='ar' ? step.max.toLocaleString('ar-EG')+' ر.ق+' : 'QR '+step.max.toLocaleString()+'+'}</span>
         </div>
       </div>
-      <div class="options-list" style="margin-top:8px">
+      <div class="options-list" style="margin-top:8px" id="preset-list">
         ${[1000,2000,3000,5000,10000].map(v => `
           <div class="option-row ${(selections[currentStep]||step.default) === v ? 'selected' : ''}"
-            onclick="selectAmount(${v})">
+            data-amt="${v}" onclick="selectAmount(${v})">
             <div class="option-row-text">
-              <div class="option-row-label">${LANG==='ar' ? v.toLocaleString('ar') + ' ر.ق / شهرياً' : 'QR ' + v.toLocaleString() + ' / month'}</div>
+              <div class="option-row-label">${LANG==='ar' ? v.toLocaleString('ar-EG') + ' ر.ق / شهرياً' : 'QR ' + v.toLocaleString() + ' / month'}</div>
             </div>
           </div>
         `).join('')}
@@ -1807,9 +2383,75 @@ function selectOption(i) {
   renderStep();
 }
 
+const MIN_AMOUNT = 1000;
+
+// Convert Arabic-Indic digits to Latin so parsing works in both languages
+function normalizeDigits(s) {
+  return String(s).replace(/[٠-٩]/g, d => '٠١٢٣٤٥٦٧٨٩'.indexOf(d))
+                  .replace(/[^0-9]/g, '');
+}
+
+function setAmountHint(msg, isError) {
+  const h = document.getElementById('amount-hint');
+  if (!h) return;
+  h.textContent = msg || '';
+  h.style.color = isError ? 'var(--red)' : 'var(--gray)';
+}
+
+// User typing in the free-text amount field
+function onAmountInput(el) {
+  const raw = normalizeDigits(el.value);
+  const num = parseInt(raw, 10);
+  if (!raw) { setAmountHint('', false); return; }
+
+  el.value = LANG === 'ar' ? num.toLocaleString('ar-EG') : num.toLocaleString('en');
+  selections[currentStep] = num;
+
+  const rng = document.getElementById('amount-range');
+  const step = onboardSteps[currentStep];
+  if (rng) rng.value = Math.min(Math.max(num, step.min), step.max);
+
+  // sync preset highlighting
+  document.querySelectorAll('#preset-list .option-row').forEach(r => {
+    r.classList.toggle('selected', parseInt(r.getAttribute('data-amt'), 10) === num);
+  });
+
+  if (num < MIN_AMOUNT) {
+    setAmountHint(LANG === 'ar'
+      ? `الحد الأدنى ${MIN_AMOUNT.toLocaleString('ar-EG')} ر.ق شهرياً`
+      : `Minimum is QR ${MIN_AMOUNT.toLocaleString()} per month`, true);
+  } else if (num > step.max) {
+    setAmountHint(LANG === 'ar'
+      ? 'مبلغ ممتاز — سنقترح توزيعاً موسعاً لمحفظتك'
+      : 'Great amount — we will suggest a broader allocation', false);
+  } else {
+    setAmountHint('', false);
+  }
+}
+
+function onAmountBlur(el) {
+  let num = parseInt(normalizeDigits(el.value), 10);
+  if (!num || num < MIN_AMOUNT) {
+    num = MIN_AMOUNT;
+    selections[currentStep] = num;
+    el.value = LANG === 'ar' ? num.toLocaleString('ar-EG') : num.toLocaleString('en');
+    const rng = document.getElementById('amount-range');
+    if (rng) rng.value = num;
+    setAmountHint(LANG === 'ar'
+      ? `تم ضبط المبلغ على الحد الأدنى ${MIN_AMOUNT.toLocaleString('ar-EG')} ر.ق`
+      : `Set to the minimum of QR ${MIN_AMOUNT.toLocaleString()}`, false);
+  }
+}
+
 function updateSlider(val) {
-  selections[currentStep] = parseInt(val);
-  document.querySelector('.amount-display').textContent = (LANG==='ar' ? parseInt(val).toLocaleString('ar')+' ر.ق' : 'QR ' + parseInt(val).toLocaleString('en'));
+  const num = parseInt(val, 10);
+  selections[currentStep] = num;
+  const inp = document.getElementById('amount-input');
+  if (inp) inp.value = LANG === 'ar' ? num.toLocaleString('ar-EG') : num.toLocaleString('en');
+  document.querySelectorAll('#preset-list .option-row').forEach(r => {
+    r.classList.toggle('selected', parseInt(r.getAttribute('data-amt'), 10) === num);
+  });
+  setAmountHint('', false);
 }
 
 function selectAmount(val) {
@@ -1865,7 +2507,7 @@ function renderStocks(type = 'all') {
           <div class="stock-ticker">${s.ticker} · <span class="halal-tag">${t('halal_tag')}</span></div>
         </div>
         <div>
-          <div class="stock-price">${LANG==='ar' ? s.price.toLocaleString('ar')+' ر.ق' : 'QR '+s.price.toLocaleString('en')}</div>
+          <div class="stock-price">${LANG==='ar' ? s.price.toLocaleString('ar-EG')+' ر.ق' : 'QR '+s.price.toLocaleString('en')}</div>
           <div class="${s.change >= 0 ? 'stock-change-pos' : 'stock-change-neg'}">
             ${s.change >= 0 ? '▲' : '▼'} ${Math.abs(s.change)}%
           </div>
@@ -1904,9 +2546,9 @@ function updateTradeSummary() {
   if (!currentStock) return;
   const qty = parseInt(document.getElementById('trade-qty').value) || 1;
   const total = qty * currentStock.price;
-  document.getElementById('modal-price').textContent = (LANG==='ar' ? currentStock.price.toLocaleString('ar')+' ر.ق' : 'QR ' + currentStock.price.toLocaleString('en'));
-  document.getElementById('modal-total').textContent = (LANG==='ar' ? total.toLocaleString('ar')+' ر.ق' : 'QR ' + total.toLocaleString('en'));
-  document.getElementById('modal-balance').textContent = (LANG==='ar' ? simBalance.toLocaleString('ar')+' ر.ق' : 'QR ' + simBalance.toLocaleString('en'));
+  document.getElementById('modal-price').textContent = (LANG==='ar' ? currentStock.price.toLocaleString('ar-EG')+' ر.ق' : 'QR ' + currentStock.price.toLocaleString('en'));
+  document.getElementById('modal-total').textContent = (LANG==='ar' ? total.toLocaleString('ar-EG')+' ر.ق' : 'QR ' + total.toLocaleString('en'));
+  document.getElementById('modal-balance').textContent = (LANG==='ar' ? simBalance.toLocaleString('ar-EG')+' ر.ق' : 'QR ' + simBalance.toLocaleString('en'));
 }
 
 function confirmTrade() {
@@ -1928,9 +2570,9 @@ function confirmTrade() {
     showToast(`${t('sold')} ${qty} ${t('of')} ${currentStock.name}`);
   }
 
-  document.getElementById('sim-balance').textContent = (LANG==='ar' ? simBalance.toLocaleString('ar')+' ر.ق' : 'QR ' + simBalance.toLocaleString('en'));
+  document.getElementById('sim-balance').textContent = (LANG==='ar' ? simBalance.toLocaleString('ar-EG')+' ر.ق' : 'QR ' + simBalance.toLocaleString('en'));
   document.getElementById('sim-pnl').textContent =
-    (simPnl >= 0 ? '+' : '') + (LANG==='ar' ? Math.round(simPnl).toLocaleString('ar')+' ر.ق' : ' QR ' + Math.round(simPnl).toLocaleString('en'));
+    (simPnl >= 0 ? '+' : '') + (LANG==='ar' ? Math.round(simPnl).toLocaleString('ar-EG')+' ر.ق' : ' QR ' + Math.round(simPnl).toLocaleString('en'));
   document.getElementById('sim-pnl').style.color = simPnl >= 0 ? 'var(--teal)' : 'var(--red)';
 
   closeModal();
